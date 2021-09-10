@@ -13,18 +13,31 @@ body{
     background-color: ivory;
 }
 
-.left{
+img{
     float:left;
-    width:300px
-
 }
+
+.left{
+    float: left;
+    width: 300px;
+}
+ 
+
 .right{
-    float:right;
-    width:300px
+    float: right;
+    width: 300px;
+}
 
-}
 .center{
+    margin-left: 320px;
+    margin-right: 300px;
     width:300px;
-    margin-left: 300;
-    margin-right:300;
 }
+
+
+li{
+    display: inline;
+    list-style-type: none;
+    margin-left: 50px;
+}
+
