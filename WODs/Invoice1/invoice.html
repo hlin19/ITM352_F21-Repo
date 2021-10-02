@@ -44,8 +44,21 @@
     var tax_rate = .0575;
     var sales_tax = subtotal*tax_rate;
 
+    // Compute Shipping
+    if (subtotal <=50){
+      shipping = 2
+    }
+    else if (subtotal <=100){
+      shipping =5
+    }
+    else{
+      shipping = 0.05*subtotal
+    }
+
     // Compute Grand Total
-    var grand_total = subtotal+sales_tax
+    var grand_total = subtotal + sales_tax + shipping;
+
+
 </script>
 
 <!DOCTYPE html>
@@ -111,6 +124,10 @@
           <tr>
             <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 5.75%</span></td>
             <td width="54%"><script>document.write("$" + sales_tax.toFixed(2))</script></td>
+          </tr>
+          <tr>
+            <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Shipping</span></td>
+            <td width="54%"><script>document.write("$" + shipping)</script></td>
           </tr>
           <tr>
             <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
