@@ -8,37 +8,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smartphone</title>
     <link rel="stylesheet" href="products-style.css"
+<script>
+    var name1 = "HTC";
+    var price1 = 40.00;
+    var image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
+
+    var name2 = "Apple";
+    var price2 = 75.00;
+    var image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
+
+    var name3 = "Nokia";
+    var price3 = 35.00;
+    var image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
+
+    var name4 = "Samsung";
+    var price4 = 45.00;
+    var image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
+
+    var name5 = "Blackberry";
+    var price5 = 10.00;
+    var image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
+</script>
+
 </head>
 
 <body>
     <h1>Used Smart Phone Store</h1>
 
-    <div><main>
-        <section class="item">
-        <script>document.write(name1)</script>
-        <p>$<script>document.write(price1)</script></p>
-        <img id="image1_id"><script>image1_id.src = image1;</script>
-    </section>
+<script>
+    document.write(`
     <section class="item">
-        <script>document.write(name2)</script>
-        <p>$<script>document.write(price2)</script></p>
-        <img id="image2_id"><script>image2_id.src = image2;</script>
-    </section>
-    <section class="item">
-        <h2><script>document.write(name3)</script>
-        <p>$<script>document.write(price3)</script></p>
-        <img id="image3_id"><script>image3_id.src = image3;</script>
-    </section>
-    <section class="item">
-        <h2><script>document.write(name4)</script>
-        <p>$<script>document.write(price4)</script></p>
-        <img id="image4_id"><script>image4_id.src = image4;</script>
-    </section>
-    <section class="item">
-        <h2><script>document.write(name5)</script>
-        <p>$<script>document.write(price5)</script></p>
-        <img id="image5_id"><script>image5_id.src = image5;</script>
-    </section>
+        <h2>name5</script>
+        <p>price5</p>
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg">    
+        </section>
+    `);
+</script>
 </main></div>
 
 <h2>Your One-Stop Phone Shop</h2>
