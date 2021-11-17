@@ -1,0 +1,69 @@
+{
+  "Milk_Tea": [
+    {
+      "name": "Strawberry",
+      "price": 4.5,
+      "description": "made with fresh strawberry and jasmine tea",
+      "image": "./images/Strawberry_Milk_Tea.jpg"
+    },
+    {
+      "name": "Matcha",
+      "price": 3.5,
+      "description": "made with powdered matcha mixed and fresh jasmine tea",
+      "image": "./images/Matcha_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Jasmine",
+      "price": 3.0,
+      "description": "made with fresh brew jasmine tea mixed",
+      "image": "./images/Jasmine_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Honeydew",
+      "price": 4.0,
+      "description": "made with fresh honeydew and contains no caffeine",
+      "image": "./images/Honeydew_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Taro",
+      "description": "made with powdered taro and fresh jasmine tea",
+      "price": 5.0,
+      "image": "./images/Taro_Milk_Tea,jgp",
+      "quantity_available": 100
+    },
+    {
+      "name": "Regular Boba",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "./images/Regular_Boba,jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Egg Pudding",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "./images/Egg_Pudding.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Lychee Jelly",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "./images/Lychee_Jelly.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Grass Jelly",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "./images/Grass_Jelly.png",
+      "quantity_available": 100
+    },
+    {
+      "name": "No Topping"
+    }
+  ]
+}
