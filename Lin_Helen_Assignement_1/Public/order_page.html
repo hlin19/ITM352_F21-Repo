@@ -12,14 +12,12 @@
       //Loop is created to display the boba products from the products.json file
       for (i = 0; i < products.Milk_Tea.length; i++) {
         document.write(`
-    <img src="${products.Milk_Tea[i].image}"height="250px" width="250px"></img>
+    <img src=${products.Milk_Tea[i].image} height="250px" width="250px"></img>
     Flavor:       ${products.Milk_Tea[i].name}
     Price:        $${products.Milk_Tea[i].price}
     Description:  ${products.Milk_Tea[i].description}
     `);
       }
-
-      console.log(products.Milk_Tea.length);
     </script>
   </body>
 </html>

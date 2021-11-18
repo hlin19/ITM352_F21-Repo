@@ -3,7 +3,9 @@
     {
       "name": "Strawberry",
       "price": 4.5,
-      "image": "https://github.com/hlin19/ITM352_F21-Repo/blob/main/Lin_Helen_Assignement_1/Public/images/Strawberry_Milk_Tea.jpg?raw=true"
+      "description": "made with fresh strawberies and jasmine tea",
+      "image": "https://github.com/hlin19/ITM352_F21-Repo/blob/main/Lin_Helen_Assignement_1/Public/images/Strawberry_Milk_Tea.jpg?raw=true",
+      "quantity_available": 100
     },
     {
       "name": "Matcha",
@@ -32,7 +34,11 @@
       "price": 5.0,
       "image": "https://github.com/hlin19/ITM352_F21-Repo/blob/main/Lin_Helen_Assignement_1/Public/images/Taro_Milk_Tea.jpg?raw=true",
       "quantity_available": 100
-    },
+    }
+  ]
+}
+{
+  "Topping": [
     {
       "name": "Regular Boba",
       "description": "freshly made every morning",
@@ -60,9 +66,6 @@
       "price": 0.5,
       "image": "https://github.com/hlin19/ITM352_F21-Repo/blob/main/Lin_Helen_Assignement_1/Public/images/Grass%20_Jelly.PNG?raw=true",
       "quantity_available": 100
-    },
-    {
-      "name": "No Topping"
     }
   ]
 }

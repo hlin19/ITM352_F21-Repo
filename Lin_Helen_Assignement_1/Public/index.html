@@ -1,3 +1,4 @@
+<!-- template found on w3 schools -->
 <!DOCTYPE html>
 <html>
   <title>Tea Cafe</title>
@@ -156,8 +157,12 @@
       <div class="w3-container" id="menu">
         <div class="w3-content" style="max-width: 700px">
           <h5 class="w3-center w3-padding-48">
-            <span class="w3-tag w3-wide">Order Now</span>
-          </h5>
+            <button onClick="loadPage()">Order Now</span>
+              <script>
+                function loadPage(){
+                  window.location.href = "http://localhost:3000/order_page.html";
+                }
+              </script>          </h5>
 
       <!-- End page content -->
     </div>
