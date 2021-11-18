@@ -1,14 +1,16 @@
+//Starting code from Assignment 1 Instructions
 var express = require("express");
 var app = express();
+var fs = require("fs");
 var port = 3000;
 var myParser = require("body-parser");
 
-var products = require("./product.json"); //load in the products created in Boba_Products.json file
+var products = require("./product.json"); //load in the products created in Products.json file
 
 app.use(myParser.urlencoded({ extended: true }));
 
-// Routing
-app.get("/product.js", function (req, res, next) {
+// To send data to the client side (code from lab 13 exercise 5)
+app.get("/product_data.js", function (req, res, next) {
   res.type(`.js`);
   var products_str = `var products = ${JSON.stringify(products)};`;
   res.send(products_str);
