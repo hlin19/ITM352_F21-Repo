@@ -6,7 +6,7 @@ var port = 3000;
 var myParser = require("body-parser");
 
 var products = require("./product.json"); //load in the products created in Products.json file
-
+var quantityArray = ["0", "0", "0", "0", "0"]; //initialize array of quantity
 app.use(myParser.urlencoded({ extended: true }));
 
 // To send data to the client side (code from lab 13 exercise 5)
@@ -25,30 +25,29 @@ app.all("", function (request, response, next) {
 // Process purchase request (From Lab13 Exercise 4)
 app.post("/process_form", function (request, response) {
   let POST = request.body;
-  let brand = products[0]["name"];
-  let name_price = products[0]["price"];
+  let milk_tea = "Milk Tea";
+  let quantity = 0;
 
-  if (typeof POST["quantity_textbox"] != "undefined") {
-    let quantity = POST["quantity_textbox"];
-    if (isNonNegativeInteger(quantity)) {
-      products[0]["total_sold"] += Number(quantity);
-      response.send(
-        `<H2>Thank you for ordering ${quantity} ${brand}! Your total is \$${
-          quantity * name_price
-        }.</H2>`
-      );
+  for (i = 0; i < products.Milk_Tea.length; i++) {
+    if (POST[`quantity${i}`] == undefined) {
+      POST[`quantity${i}`] = "0";
     } else {
-      response.send(`<I>${quantity} is not a valid quantity!</I>`);
+      quantityArray[i] = POST[`quantity${i}`];
     }
   }
+  console.log(quantityArray);
+  response.send(`<p>Item added to cart successfully!</p>`);
+});
+
+app.get("/invoice.js", function (req, res, next) {
+  res.type(`.js`);
+  var products_str = `var quantityArray = ${JSON.stringify(quantityArray)};
+                      var products = ${JSON.stringify(products)};`;
+  res.send(products_str);
 });
 
 //Data validation (found in Lab 3 Exercise 5)
 function isNonNegativeInteger(inputString, returnErrors = false) {
-  // Validate that an input value is a non-negative integer
-  // inputString is the input string; returnErrors indicates how the function returns: true means return the
-  // array and false means return a boolean.
-
   errors = []; // assume no errors at first
   if (Number(inputString) != inputString) {
     errors.push("Not a number!"); // Check if string is a number value
