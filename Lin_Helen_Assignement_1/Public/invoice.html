@@ -23,26 +23,29 @@
       "
     >
       <tr>
-        <td style="width: 43%">Item</td>
+        <td style="width: 250px">Item</td>
         <td style="width: 11%; border: 1px solid black">Quantity</td>
-        <td style="width: 13%; border: 1px solid black">Price</td>
-        <td style="width: 13%; border: 1px solid black">Extended Price</td>
+        <td style="width: 11%; border: 1px solid black">Price</td>
+        <td style="width: 125px; border: 1px solid black">Extended Price</td>
       </tr>
     </table>
 
     <script>
-      const tax = 0.04712; //state tax
-      let afterTax = 0.0; //subtotal * tax
-      let subtotal = 0.0;
+      let tax = 0; //subtotal * HI state tax
+      let subtotal = 0;
       let delivery = 2.0;
-      let total = 0.0;
+      let total = 0;
 
       //convert string array to integer array
       for (i = 0; i < products.Milk_Tea.length; i++) {
         quantityArray[i] = Number(quantityArray[i]);
-        subtotal = subtotal + extended_price; //calculate subtotal
-        afterTax = subtotal * tax; //calculate tax (subtotal * tax)
-        total = subtotal + afterTax + delivery; //calculate total (subtotal * tax + delivery)
+        let subtotalArray = [];
+        //calculate extended cost of each drink and add to subtotal array
+        subtotalArray[i] = products.Milk_Tea[i].price * quantityArray[i];
+        //calculate sum of subtotal array
+        subtotal += subtotalArray[i]; //calculate subtotal
+        tax = subtotal * 0.04712; //calculate tax (subtotal * HI state tax )
+        total = subtotal + tax; //calculate total (subtotal * tax + delivery)
       }
 
       //loop through quantity and print out quantity for each selected drink
@@ -50,52 +53,60 @@
       for (i = 0; i < quantityArray.length; i++) {
         if (quantityArray[i] != 0) {
           document.write(`
-               <table style="margin-left: auto; margin-right: auto; border: 1px solid black;  border-collapse: collapse; text-align: center; width: 60%;">
-                  <tr>
-                  <td style="width:43%">${products.Milk_Tea[i].name}</td>
-                  <td style="width:11%;border: 1px solid black">${
-                    quantityArray[i]
-                  }</td>
-                  <td style="width:13%;border: 1px solid black">$${
-                    products.Milk_Tea[i].price
-                  }</td>
-                  <td style="width:13%;border: 1px solid black">$${
-                    products.Milk_Tea[i].price * quantityArray[i]
-                  }</td>
-                </tr>
-                </table>
-                `);
+                 <table style="margin-left: auto; margin-right: auto; border: 1px solid black;  border-collapse: collapse; text-align: center; width: 60%;">
+                    <tr>
+                    <td style="width:250px">${products.Milk_Tea[i].name}</td>
+                    <td style="width:11%;border: 1px solid black">${
+                      quantityArray[i]
+                    }</td>
+                    <td style="width:11%;border: 1px solid black">$${
+                      products.Milk_Tea[i].price
+                    }</td>
+                    <td style="width:125px;border: 1px solid black">$${
+                      products.Milk_Tea[i].price * quantityArray[i]
+                    }</td>
+                  </tr>
+                  </table>
+                  `);
         }
       }
 
       //print subtotal, total, tax on html
       document.write(`    <table
-      style="
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid black;
-        border-collapse: collapse;
-        text-align: center;
-        width: 60%;
-      "
-    >
-      <tr>
-        <td style="width: 43%">Subtotal: </td>
-        <td style="width: 11%; border: 1px solid black">$${subtotal}</td>
-      </tr>
-      <tr>
-        <td style="width: 43%">Tax (4.712%):</td>
-        <td style="width: 11%; border: 1px solid black">$${afterTax}</td>
-      </tr>
-      <tr>
-        <td style="width: 43%">Delivery:</td>
-        <td style="width: 11%; border: 1px solid black">$${delivery}</td>
-      </tr>
-      <tr>
-        <td style="width: 43%">Total:</td>
-        <td style="width: 11%; border: 1px solid black">$${total}</td>
-      </tr>
-    </table>`);
+        style="
+          margin-left: auto;
+          margin-right: auto;
+          border: 1px solid black;
+          border-collapse: collapse;
+          text-align: center;
+          width: 60%;
+        "
+      >
+        <tr>
+          <td style="width: 250px">Subtotal: </td>
+          <td style="width: 11%; border: 1px solid black">$${subtotal.toFixed(
+            2
+          )}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px">Tax (4.712%):</td>
+          <td style="width: 26%; border: 1px solid black">$${tax.toFixed(
+            2
+          )}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px">Delivery:</td>
+          <td style="width: 26%; border: 1px solid black">$${delivery.toFixed(
+            2
+          )}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px">Total:</td>
+          <td style="width: 26%; border: 1px solid black">$${total.toFixed(
+            2
+          )}</td>
+        </tr>
+      </table>`);
     </script>
   </body>
 </html>
