@@ -1,0 +1,36 @@
+{
+  "Milk_Tea": [
+    {
+      "name": "Strawberry",
+      "price": 4.5,
+      "image": "https://i1.wp.com/talkboba.com/wp-content/uploads/2019/04/strawberry-milk-tea-tb.jpg?zoom=0.800000011920929&fit=1024%2C1024&ssl=1"
+    },
+    {
+      "name": "Matcha",
+      "price": 3.5,
+      "description": "made with powdered matcha mixed and fresh jasmine tea",
+      "image": "https://th.bing.com/th/id/OIP.kMCJgqcHeunX1AgkL5QEpgHaLH?pid=ImgDet&rs=1",
+      "quantity_available": 100
+    },
+    {
+      "name": "Jasmine",
+      "price": 3.0,
+      "description": "made with fresh brew jasmine tea mixed",
+      "image": "https://dragonbobausa.com/wp-content/uploads/2020/12/Jasmine-Green-Milk-Tea-3.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Honeydew",
+      "price": 4.0,
+      "description": "made with fresh honeydew and contains no caffeine",
+      "image": "https://th.bing.com/th/id/R.8d274c2267bbfcddc0211fbc60736977?rik=jOOmHYn4v5pOSg&riu=http%3a%2f%2fwww.arcticfoxdesserts.com%2fwp-content%2fuploads%2f2017%2f12%2fHOneyDewMilkwith-Melon_website.jpg&ehk=nsDAFzmeIPLNrSOhlD16k%2fKNyVErx37lc6hcB8PF7oA%3d&risl=&pid=ImgRaw&r=0",
+      "quantity_available": 100
+    },
+    {
+      "name": "Taro",
+      "description": "made with powdered taro and fresh jasmine tea",
+      "image": "https://i1.wp.com/livingfreshdaily.com/wp-content/uploads/2019/07/Taro-Boba-Milk-Tea.jpg?fit=1500%2C2000&ssl=1",
+      "quantity_available": 100
+    }
+  ]
+}
