@@ -25,6 +25,7 @@ if (fs.existsSync(filename)) {
   console.log("Enter the correct filename bozo!");
 }
 
+//From Lab 14
 //default login
 // username = "newuser";
 // user_data[username] = {};
