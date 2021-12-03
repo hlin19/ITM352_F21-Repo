@@ -4,7 +4,7 @@
       "name": "Strawberry",
       "price": 4.5,
       "description": "made with fresh strawberies and jasmine tea",
-      "image": "https://github.com/hlin19/ITM352_F21-Repo/blob/main/Lin_Helen_Assignment2/public/images/Strawberry_Milk_Tea.jpg",
+      "image": "./Lin_Helen_Assignment2/public/images/Strawberry_Milk_Tea.jpg",
       "quantity_available": 100
     },
     {
