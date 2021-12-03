@@ -1,0 +1,206 @@
+<!-- template found on w3 schools -->
+<!DOCTYPE html>
+<html>
+  <title>Tea Cafe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Inconsolata"
+  />
+  <style>
+    body,
+    html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
+
+    .bgimg {
+      background-position: center;
+      background-size: cover;
+      background-image: url("./images/Bubble_Tea.jpg");
+      min-height: 75%;
+    }
+
+    .menu {
+      display: none;
+    }
+  </style>
+  <body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+          <a href="#" class="w3-button w3-block w3-black">HOME</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header with image -->
+    <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+      <div
+        class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small"
+      >
+        <span class="w3-tag">Open from 9am to 10pm</span>
+      </div>
+      <div class="w3-display-middle w3-center">
+        <span class="w3-text-white" style="font-size: 90px">Tea<br />Cafe</span>
+      </div>
+      <div class="w3-display-bottomright w3-center w3-padding-large">
+        <span class="w3-text-white">814 Aloha Street, 2000</span>
+      </div>
+    </header>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="w3-sand w3-grayscale w3-large">
+      <!-- About Container -->
+      <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-64">
+            <span class="w3-tag w3-wide">ABOUT THE CAFE</span>
+          </h5>
+          <p>
+            Tea Cafe was founded in 2021 by Helen Lin when she first had to
+            build her first e-commerce website. The built e-commerce website,
+            meant as a assignment had turned into an actual business after the
+            end of the semester. The startup of this cafe was meant not to only
+            bring together those who loves tea but also those who need to take
+            time and relax after doing their ITM352 assignments.
+          </p>
+          <p>
+            In addition to doing school work, Ms. Lin wants more people to come
+            together and enjoy the beauty of tea flavors and be immersed in the
+            peace that each tea flavor brings along.
+          </p>
+          <div class="w3-panel w3-leftbar w3-light-grey">
+            <p>
+              <i
+                >"Use products from nature for what it's worth - but never too
+                early, nor too late." Fresh is the new sweet.</i
+              >
+            </p>
+            <p>Shidler student: Helen Lin</p>
+          </div>
+          <img
+            src="./images/Tea_Cafe.png"
+            style="width: 100%; max-width: 1000px"
+            class="w3-margin-top"
+          />
+          <p><strong>Opening hours:</strong> Mon-Fri from 9am to 10pm.</p>
+          <p><strong>Address:</strong> 814 Aloha street, 2000, HI</p>
+        </div>
+    </div>
+
+    <!-- Menu Container -->
+    <div class="w3-container" id="menu">
+      <div class="w3-content" style="max-width: 700px">
+        <h5 class="w3-center w3-padding-48">
+          <span class="w3-tag w3-wide">THE MENU</span>
+        </h5>
+
+        <div class="w3-row w3-center w3-card w3-padding">
+          <a
+            href="javascript:void(0)"
+            onclick="openMenu(event, 'Eat');"
+            id="myLink"
+          >
+            <div class="w3-col s6 tablink">Eat</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+            <div class="w3-col s6 tablink">Drink</div>
+          </a>
+        </div>
+
+        <div id="Eat" class="w3-center container menu w3-padding-48 w3-card">
+          <h5>Coming Soon</h5>
+        </div>
+
+        <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+          <h5>Toppings Selection</h5>
+          <p class="w3-text-grey">
+            Regular Boba, Egg Pudding, Lychee Jelly, Grass Jelly
+          </p>
+          <br />
+          <h5>Strawberry Milk Tea</h5>
+          <p class="w3-text-grey">made with fresh strawberry and jasmine tea</p>
+          <br />
+          <h5>Matcha Milk Tea</h5>
+          <p class="w3-text-grey">
+            made with powdered matcha mixed and fresh jasmine tea
+          </p>
+          <br />
+          <h5>Jasmine Milk Tea</h5>
+          <p class="w3-text-grey">made with fresh brew jasmine tea mixed</p>
+          <br />
+          <h5>Honeydew Milk Tea</h5>
+          <p class="w3-text-grey">
+            made with fresh honeydew and contains no caffeine
+          </p>
+          <br />
+          <h5>Taro Milk Tea</h5>
+          <p class="w3-text-grey">
+            made with powdered taro and fresh jasmine tea
+          </p>
+          <br />
+        </div>
+      </div>
+      <div class="w3-container" id="menu">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+          <!-- To like order now buttone to order_page.htlm for customers to order product -->
+            <button onClick="loadPage()">Order Now</span>
+              <script>
+                function loadPage(){
+                  window.location.href = "./order_page.html";
+                }
+              </script>          </h5>
+
+    <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+      <p>
+        Powered by
+        <a
+          href="https://www.w3schools.com/w3css/default.asp"
+          title="W3.CSS"
+          target="_blank"
+          class="w3-hover-text-green"
+          >w3.css</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      // Tabbed Menu
+      function openMenu(evt, menuName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("menu");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(
+            " w3-dark-grey",
+            ""
+          );
+        }
+        document.getElementById(menuName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+      }
+      document.getElementById("myLink").click();
+    </script>
+  </body>
+</html>
