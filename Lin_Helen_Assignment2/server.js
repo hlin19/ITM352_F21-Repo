@@ -73,15 +73,52 @@ app.post("/login", function (request, response) {
 app.get("/register", function (request, response) {
   // Give a simple register form
   str = `
-<body>
-<form action="/register" method="POST">
-<input type="text" name="username" size="40" placeholder="enter username" ><br />
-<input type="password" name="password" size="40" placeholder="enter password"><br />
-<input type="password" name="repeat_password" size="40" placeholder="enter password again"><br />
-<input type="email" name="email" size="40" placeholder="enter email"><br />
-<input type="submit" value="Submit" id="submit">
-</form>
-</body>
+ 
+  <html>
+  <title>W3.CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+  
+  <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+  <h2 class="w3-center">Sign Up Now!</h2>
+   
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="Username" type="text" placeholder="Username">
+      </div>
+  </div>
+  
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="email" type="text" placeholder="Email">
+      </div>
+  </div>
+  
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="Enter Password" type="text" placeholder="Enter Password">
+      </div>
+  </div>
+  
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="Enter Password Again" type="text" placeholder="Enter Password Again">
+      </div>
+  </div>
+  
+  <p class="w3-center">
+  <button class="w3-button w3-section w3-blue w3-ripple"> Register </button>
+  </p>
+  </form>
+  
+  </body>
+  </html> 
     `;
   response.send(str);
 });
