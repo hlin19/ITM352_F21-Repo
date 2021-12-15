@@ -6,9 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- load in products.js to get products on order page for loop use. -->
     <script src="./products.js" type="text/javascript"></script>
-    <title>Menu</title>
+    <title>Tea Cafe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+      }
+
+      .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/Bubble_Tea.jpg");
+        min-height: 75%;
+      }
+
+      .menu {
+        display: none;
+      }
+    </style>
   </head>
   <body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+          <a href="#" class="w3-button w3-block w3-black">HOME</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="/invoice.html" class="w3-button w3-block w3-black"
+            ><img
+              src="https://th.bing.com/th/id/R.cc525134d328cb7ffa0f5a2f687aa4c9?rik=4JRNZs%2bkRJ4%2fFg&pid=ImgRaw&r=0"
+              style="width: 100%; max-width: 50px"
+              class="w3-margin-left"
+          /></a>
+        </div>
+      </div>
+    </div>
     <span>
       <p id="user" style="float: right; margin: 5px; font-size: large"></p>
       <button

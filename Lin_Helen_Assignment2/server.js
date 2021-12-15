@@ -82,7 +82,7 @@ app.get("/register", function (request, response) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <body>
   
-  <form action="/register" method="POST">
+  <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
   <h2 class="w3-center">Sign Up Now!</h2>
    
   <div class="w3-row w3-section">
