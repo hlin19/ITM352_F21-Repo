@@ -11,6 +11,67 @@
       <script src="./product.js">
         //code from assignment 3 examples
       </script>
+          <title>Tea Cafe</title>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Inconsolata"
+          />
+          <style>
+            body,
+            html {
+              height: 100%;
+              font-family: "Inconsolata", sans-serif;
+            }
+      
+            .bgimg {
+              background-position: center;
+              background-size: cover;
+              background-image: url("./images/Bubble_Tea.jpg");
+              min-height: 75%;
+            }
+      
+            .menu {
+              display: none;
+            }
+          </style>
+        </head>
+        <body>
+          <!-- Links (sit on top) -->
+          <div class="w3-top">
+            <div class="w3-row w3-padding w3-black">
+              <div class="w3-col s3">
+                <a href="/index.html" class="w3-button w3-block w3-black">HOME</a>
+              </div>
+              <div class="w3-col s3">
+                <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+              </div>
+              <div class="w3-col s3">
+                <a href="/order_page.html" class="w3-button w3-block w3-black"
+                  >MENU</a
+                >
+              </div>
+              <div class="w3-col s3">
+                <a href="/cart.html" class="w3-button w3-block w3-black"
+                  >Cart<span class="price" style="color: white"></span
+                  ><i class="fa fa-shopping-cart"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <span>
+            <p id="user" style="float: right; margin: 5px; font-size: large"></p>
+            <button
+              onClick="loadPage()"
+              style="width: 10%; font-size: large; float: right; padding: 0"
+            >
+              Pay Now
+            </button></span
+          >
+          <br />
+          <br />
       <script>
         //code from assignment 3 examples
         var products_data;
