@@ -1,104 +1,94 @@
 <!-- template found on w3 schools -->
 <!DOCTYPE html>
 <html>
-  <title>Tea Cafe</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Inconsolata"
-  />
-  <style>
-    body,
-    html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
+<title>Tea Cafe</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+<style>
+  body,
+  html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+  }
 
-    .bgimg {
-      background-position: center;
-      background-size: cover;
-      background-image: url("./images/Bubble_Tea.jpg");
-      min-height: 75%;
-    }
+  .bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("./images/Bubble_Tea.jpg");
+    min-height: 75%;
+  }
 
-    .menu {
-      display: none;
-    }
-  </style>
-  <body>
-    <!-- Links (sit on top) -->
-    <div class="w3-top">
-      <div class="w3-row w3-padding w3-black">
-        <div class="w3-col s3">
-          <a href="#" class="w3-button w3-block w3-black">HOME</a>
-        </div>
-        <div class="w3-col s3">
-          <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-        </div>
-        <div class="w3-col s3">
-          <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-        </div>
-        <div class="w3-col s3">
-          <a href="/register" class="w3-button w3-block w3-black">Register Account</a>
-        </div>
+  .menu {
+    display: none;
+  }
+</style>
+
+<body>
+  <!-- Links (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+      <div class="w3-col s3">
+        <a href="#" class="w3-button w3-block w3-black">HOME</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="/register" class="w3-button w3-block w3-black">Register Account</a>
       </div>
     </div>
+  </div>
 
-    <!-- Header with image -->
-    <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-      <div
-        class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small"
-      >
-        <span class="w3-tag">Open from 9am to 10pm</span>
-      </div>
-      <div class="w3-display-middle w3-center">
-        <span class="w3-text-white" style="font-size: 90px">Tea<br />Cafe</span>
-      </div>
-      <div class="w3-display-bottomright w3-center w3-padding-large">
-        <span class="w3-text-white">814 Aloha Street, 2000</span>
-      </div>
-    </header>
+  <!-- Header with image -->
+  <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+      <span class="w3-tag">Open from 9am to 10pm</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+      <span class="w3-text-white" style="font-size: 90px">Tea<br />Cafe</span>
+    </div>
+    <div class="w3-display-bottomright w3-center w3-padding-large">
+      <span class="w3-text-white">814 Aloha Street, 2000</span>
+    </div>
+  </header>
 
-    <!-- Add a background color and large text to the whole page -->
-    <div class="w3-sand w3-grayscale w3-large">
-      <!-- About Container -->
-      <div class="w3-container" id="about">
-        <div class="w3-content" style="max-width: 700px">
-          <h5 class="w3-center w3-padding-64">
-            <span class="w3-tag w3-wide">ABOUT THE CAFE</span>
-          </h5>
+  <!-- Add a background color and large text to the whole page -->
+  <div class="w3-sand w3-grayscale w3-large">
+    <!-- About Container -->
+    <div class="w3-container" id="about">
+      <div class="w3-content" style="max-width: 700px">
+        <h5 class="w3-center w3-padding-64">
+          <span class="w3-tag w3-wide">ABOUT THE CAFE</span>
+        </h5>
+        <p>
+          Tea Cafe was founded in 2021 by Helen Lin when she first had to
+          build her first e-commerce website. The built e-commerce website,
+          meant as a assignment had turned into an actual business after the
+          end of the semester. The startup of this cafe was meant not to only
+          bring together those who loves tea but also those who need to take
+          time and relax after doing their ITM352 assignments.
+        </p>
+        <p>
+          In addition to doing school work, Ms. Lin wants more people to come
+          together and enjoy the beauty of tea flavors and be immersed in the
+          peace that each tea flavor brings along.
+        </p>
+        <div class="w3-panel w3-leftbar w3-light-grey">
           <p>
-            Tea Cafe was founded in 2021 by Helen Lin when she first had to
-            build her first e-commerce website. The built e-commerce website,
-            meant as a assignment had turned into an actual business after the
-            end of the semester. The startup of this cafe was meant not to only
-            bring together those who loves tea but also those who need to take
-            time and relax after doing their ITM352 assignments.
+            <i>"Use products from nature for what it's worth - but never too
+              early, nor too late." Fresh is the new sweet.</i>
           </p>
-          <p>
-            In addition to doing school work, Ms. Lin wants more people to come
-            together and enjoy the beauty of tea flavors and be immersed in the
-            peace that each tea flavor brings along.
-          </p>
-          <div class="w3-panel w3-leftbar w3-light-grey">
-            <p>
-              <i
-                >"Use products from nature for what it's worth - but never too
-                early, nor too late." Fresh is the new sweet.</i
-              >
-            </p>
-            <p>Shidler student: Helen Lin</p>
-          </div>
-          <img
-            src="./images/Tea_Cafe.png"
-            style="width: 100%; max-width: 1000px"
-            class="w3-margin-top"
-          />
-          <p><strong>Opening hours:</strong> Mon-Fri from 9am to 10pm.</p>
-          <p><strong>Address:</strong> 814 Aloha street, 2000, HI</p>
+          <p>Shidler student: Helen Lin</p>
         </div>
+        <img src="./images/Tea_Cafe.png" style="width: 100%; max-width: 1000px" class="w3-margin-top" />
+        <p><strong>Opening hours:</strong> Mon-Fri from 9am to 10pm.</p>
+        <p><strong>Address:</strong> 814 Aloha street, 2000, HI</p>
+      </div>
     </div>
 
     <!-- Menu Container -->
@@ -109,11 +99,7 @@
         </h5>
 
         <div class="w3-row w3-center w3-card w3-padding">
-          <a
-            href="javascript:void(0)"
-            onclick="openMenu(event, 'Eat');"
-            id="myLink"
-          >
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
             <div class="w3-col s6 tablink">Eat</div>
           </a>
           <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
@@ -157,78 +143,79 @@
       <div class="w3-container" id="menu">
         <div class="w3-content" style="max-width: 700px">
           <h5 class="w3-center w3-padding-48">
-          <!-- To like order now buttone to order_page.htlm for customers to order product -->
-          <!-- Template found on W3School -->
-          <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Order Now</button>
-          <div id="id01" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-          
-              <div class="w3-center"><br>
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-                <img src="https://www.fhrinstitute.sr/wp-content/uploads/2020/07/Profile-Icon.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-              </div>
-        
-              <form class="w3-container" action="/action_page.php">
-                <div class="w3-section">
-                  <label><b>Username</b></label>
-                  <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                  <label><b>Password</b></label>
-                  <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                  <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                  <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+            <!-- To like order now buttone to order_page.htlm for customers to order product -->
+            <!-- Template found on W3School -->
+            <button onclick="document.getElementById('id01').style.display='block'"
+              class="w3-button w3-green w3-large">Order Now</button>
+            <div id="id01" class="w3-modal">
+              <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                <div class="w3-center"><br>
+                  <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                  <img src="https://www.fhrinstitute.sr/wp-content/uploads/2020/07/Profile-Icon.png" alt="Avatar"
+                    style="width:30%" class="w3-circle w3-margin-top">
                 </div>
-              </form>
-        
-              <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-                <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+
+                <form action="./login" method="post" class="w3-container">
+                  <div class="w3-section">
+                    <label><b>Username</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username"
+                      name="username" required>
+                    <label><b>Password</b></label>
+                    <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password" required>
+                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+                    <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                  </div>
+                </form>
+
+                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                  <button onclick="document.getElementById('id01').style.display='none'" type="button"
+                    class="w3-button w3-red">Cancel</button>
+                  <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+                </div>
+
               </div>
-        
             </div>
-          </div>
-              <script>
-                function loadPage(){
-                  window.location.href = "/login";
-                }
-              </script>          </h5>
+            <script>
+              function loadPage() {
+                window.location.href = "/";
+              }
+            </script>
+          </h5>
 
-    <!-- End page content -->
-    </div>
+          <!-- End page content -->
+        </div>
 
-    <!-- Footer -->
-    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-      <p>
-        Powered by
-        <a
-          href="https://www.w3schools.com/w3css/default.asp"
-          title="W3.CSS"
-          target="_blank"
-          class="w3-hover-text-green"
-          >w3.css</a
-        >
-      </p>
-    </footer>
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+          <p>
+            Powered by
+            <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+              class="w3-hover-text-green">w3.css</a>
+          </p>
+        </footer>
 
-    <script>
-      // Tabbed Menu
-      function openMenu(evt, menuName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("menu");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(
-            " w3-dark-grey",
-            ""
-          );
-        }
-        document.getElementById(menuName).style.display = "block";
-        evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-      }
-      document.getElementById("myLink").click();
-    </script>
-  </body>
+        <script>
+          // Tabbed Menu
+          function openMenu(evt, menuName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("menu");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(
+                " w3-dark-grey",
+                ""
+              );
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+          }
+          document.getElementById("myLink").click();
+        </script>
+</body>
+
 </html>
-

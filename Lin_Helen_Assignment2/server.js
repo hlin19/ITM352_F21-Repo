@@ -4,6 +4,8 @@ var app = express();
 var fs = require("fs");
 var port = 8080;
 var myParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
 var filename = "./user_data.json";
 var queryString = require("query-string");
 
@@ -11,6 +13,10 @@ var products = require("./product.json"); //load in the products created in Prod
 var quantityArray = ["0", "0", "0", "0", "0"]; //initialize array of quantity
 var currentUser = "";
 
+app.use(
+  session({ secret: "MySecretKey", resave: true, saveUninitialized: true })
+);
+app.use(cookieParser());
 app.use(myParser.urlencoded({ extended: true }));
 
 if (fs.existsSync(filename)) {
@@ -32,19 +38,19 @@ if (fs.existsSync(filename)) {
 // user_data[username].password = "newpass";
 // user_data[username].email = "newuser@user.com";
 
-app.get("/login", function (request, response) {
-  // Give a simple login form
-  str = `
-<body>
-<form action="" method="POST">
-<input type="text" name="username" size="40" placeholder="enter username" ><br />
-<input type="password" name="password" size="40" placeholder="enter password"><br />
-<input type="submit" value="Submit" id="submit">
-</form>
-</body>
-    `;
-  response.send(str);
-});
+// app.get("/", function (request, response) {
+//   // Give a simple login form
+//   str = `
+// <body>
+// <form action="" method="POST">
+// <input type="text" name="username" size="40" placeholder="enter username" ><br />
+// <input type="password" name="password" size="40" placeholder="enter password"><br />
+// <input type="submit" value="Submit" id="submit">
+// </form>
+// </body>
+//     `;
+//   response.send(str);
+// });
 
 app.post("/login", function (request, response) {
   // Process login form POST and redirect to logged in page if ok, back to login page if not
@@ -59,14 +65,15 @@ app.post("/login", function (request, response) {
     if (user_data[user_name].password == user_pass) {
       //redirect to home page if getting a good login
       currentUser = user_name; //store user_name to currentUser and pass to product.js
+      response.cookie("username", currentUser);
       response.redirect("/order_page.html");
     } else {
       // Bad login, redirect
-      response.redirect("/login");
+      response.redirect("/");
     }
   } else {
     // Bad username
-    response.redirect("/login");
+    response.redirect("/");
   }
 });
 
@@ -82,7 +89,7 @@ app.get("/register", function (request, response) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <body>
   
-  <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+  <form action="/register" method="POST">
   <h2 class="w3-center">Sign Up Now!</h2>
    
   <div class="w3-row w3-section">
@@ -168,9 +175,11 @@ app.post("/register", function (request, response) {
 // To send product data to the client side (code from lab 13 exercise 5)
 app.get("/products.js", function (req, res, next) {
   res.type(`.js`);
-  var str = `var currentUser = "${currentUser}"; var products = ${JSON.stringify(
+  var username = req.cookies["username"];
+  var str = `var currentUser = "${username}"; var products = ${JSON.stringify(
     products
   )};`;
+
   res.send(str);
 });
 
@@ -184,7 +193,7 @@ app.all("", function (request, response, next) {
 // Process purchase request (From Lab13 Exercise 4)
 app.post("/process_form", function (request, response) {
   let POST = request.body;
-
+  request.session.order_array = [];
   for (i = 0; i < products.Milk_Tea.length; i++) {
     let quantity = POST[`quantity${i}`];
     if (quantity == undefined) {
@@ -197,11 +206,16 @@ app.post("/process_form", function (request, response) {
       quantity = "0";
     } else {
       quantityArray[i] = quantity;
-      response.send(`<p>Item added to cart successfully!</p>`);
+
+      for (i = 0; i < products.Milk_Tea.length; i++) {
+        request.session.order_array[i] = quantityArray[i];
+      }
+
+      response.redirect("/invoice.html");
     }
   }
 
-  console.log(quantityArray);
+  console.log(request.session["order_array"]);
 });
 
 //Data validation (found in Lab 3 Exercise 5)
@@ -223,7 +237,8 @@ function isNonNegativeInteger(inputString, returnErrors = false) {
 //to send invoice data to client side (From Lab 13 Exercise 4)
 app.get("/invoice.js", function (req, res, next) {
   res.type(`.js`);
-  var products_str = `var quantityArray = ${JSON.stringify(quantityArray)};
+  var orderArray = req.session.order_array;
+  var products_str = `var quantityArray = ${JSON.stringify(orderArray)};
                       var products = ${JSON.stringify(products)};`;
   res.send(products_str);
 });
