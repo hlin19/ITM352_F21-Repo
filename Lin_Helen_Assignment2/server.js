@@ -211,7 +211,7 @@ app.post("/process_form", function (request, response) {
         request.session.order_array[i] = quantityArray[i];
       }
 
-      response.redirect("/invoice.html");
+      response.redirect("/cart.html");
     }
   }
 
@@ -235,7 +235,7 @@ function isNonNegativeInteger(inputString, returnErrors = false) {
 }
 
 //to send invoice data to client side (From Lab 13 Exercise 4)
-app.get("/invoice.js", function (req, res, next) {
+app.get("/cart.js", function (req, res, next) {
   res.type(`.js`);
   var orderArray = req.session.order_array;
   var products_str = `var quantityArray = ${JSON.stringify(orderArray)};
