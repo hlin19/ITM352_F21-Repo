@@ -61,12 +61,17 @@ app.post("/login", function (request, response) {
   user_pass = POST["password"];
   console.log("User name=" + user_name + " password=" + user_pass);
 
-  if (user_data[user_name] != undefined) {
-    if (user_data[user_name].password == user_pass) {
+  if (user_pass != undefined) {
+    if (user_pass == "admin") {
       //redirect to home page if getting a good login
-      currentUser = user_name; //store user_name to currentUser and pass to product.js
-      response.cookie("username", currentUser);
-      response.redirect("/order_page.html");
+      // currentUser = user_name; //store user_name to currentUser and pass to product.js
+      // response.cookie("username", currentUser);
+      response.redirect("/queries.html");
+    } else if (user_pass == "customer") {
+      //redirect to home page if getting a good login
+      // currentUser = user_name; //store user_name to currentUser and pass to product.js
+      // response.cookie("username", currentUser);
+      response.redirect("/dashboard.html");
     } else {
       // Bad login, redirect
       response.redirect("/");

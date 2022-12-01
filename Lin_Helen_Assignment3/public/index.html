@@ -1,4 +1,3 @@
-<!-- template found on w3 schools -->
 <!DOCTYPE html>
 <html>
 <title>Rabbit Rabbit Tea</title>
@@ -23,11 +22,15 @@
   .menu {
     display: none;
   }
-  /* #employeeLogin, #adminLogin{
-    display:none
-  } */
-  #employeeLogin:hover, #adminLogin:hover{
-    display:block
+
+  #dropdown-content {
+    display: none;
+    position: absolute;
+
+  }
+
+  #dropdown:hover #dropdown-content {
+    display: block;
   }
 </style>
 
@@ -44,14 +47,11 @@
       <div class="w3-col s3">
         <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
       </div>
-      <div class="w3-col s3">
-        <p class="w3-button w3-block w3-black">Login</p>
-        <div class="w3-col s3" id="employeeLogin" >
-          <a href="/employeeLogin" class="w3-button w3-block w3-black">Employee Login</a>
-        </div>
-        <br>
-        <div class="w3-col s3" id="adminLogin">
-          <a href="/adminLogin" class="w3-button w3-block w3-black">Admin Login</a>
+      <div class="w3-col s3" id="dropdown">
+        <a class="w3-button w3-block w3-black">Login</a>
+        <div class="w3-col s3" id="dropdown-content">
+          <a href="login.html" class="w3-button w3-block w3-black">Customer Login</a>
+          <a href="login.html" class="w3-button w3-block w3-black">Admin Login</a>
         </div>
       </div>
     </div>
@@ -79,14 +79,37 @@
           <span class="w3-tag w3-wide">ABOUT THE Rabbit Rabiit Tea</span>
         </h5>
         <p>
-          My name is Alice and I was born and raised in Taichung, Taiwan. My father first visited Hawaii over 40 years ago and completely fell in love with the islands. He vowed then, that one day he would bring all his daughters back to Hawaii for better education, opportunities and brighter futures.
+          My name is Alice and I was born and raised in Taichung, Taiwan. My father first visited Hawaii over 40 years
+          ago and completely fell in love with the islands. He vowed then, that one day he would bring all his daughters
+          back to Hawaii for better education, opportunities and brighter futures.
         </p>
         <p>
-          Some years later as a teenager in this new city, I was immediately enamored with the Hawaiian culture, food, and sights. But most importantly, the warmth of the people and the Aloha spirit welcomed me with open arms. Those were some of the most formidable years that helped mold the person I am today. Not to mention, it was also where I met my husband all those years ago! Although I left for college on the Mainland in pursuit of my dreams and we eventually married and settled down in different parts of the world, there was no hesitation on where to bring our children back to, when it was time. Hawaii is where my heart is. Where it all began, my full-circle moment.
-          The first few years since our return to the islands were spent focusing on our children to help them settle into their new environment, new schools and make new friends. Now that they have adapted to the island lifestyle, it is time to focus on myself. With the full support of my husband and children, I began searching for business opportunities that I am passionate about.
-          Growing up in Taichung, the city where the now world-renown tapioca milk tea or “Boba” tea originated, I witnessed the culture shift as it evolved throughout my childhood. This old tradition of “gathering around the corner tea house” which mainly involved an older generation, went through a transformation where people of all ages and different communities, especially the younger generation, used as their preferred social gathering spot. The “Modern Tea House” lifestyle began to take shape and quickly expanded beyond Taichung, and the global community took notice. It was with the same spirit of bringing the community together that I decided to open my own “tea house around the corner”.
-          “Our consumers purchase because of trust. What we do has true impact on their lives, so we need to be responsible and source the best ingredients, test the recipe and have our customers’ best interest at heart before putting out any product” - with this motto from my late Father-in-Law, I began months of research across the world to locate the best ingredients and vendors to share with you.
-          Rabbit Rabbit Tea, is the perfect partner to help present the modern tea house infused with a healthy dose of Aloha. While boba is not a new concept, what sets us apart is our sense of community around great food and a genuine belief that good food / good company is good for the soul. We hope you like what we have prepared for you, our Ohana.
+          Some years later as a teenager in this new city, I was immediately enamored with the Hawaiian culture, food,
+          and sights. But most importantly, the warmth of the people and the Aloha spirit welcomed me with open arms.
+          Those were some of the most formidable years that helped mold the person I am today. Not to mention, it was
+          also where I met my husband all those years ago! Although I left for college on the Mainland in pursuit of my
+          dreams and we eventually married and settled down in different parts of the world, there was no hesitation on
+          where to bring our children back to, when it was time. Hawaii is where my heart is. Where it all began, my
+          full-circle moment.
+          The first few years since our return to the islands were spent focusing on our children to help them settle
+          into their new environment, new schools and make new friends. Now that they have adapted to the island
+          lifestyle, it is time to focus on myself. With the full support of my husband and children, I began searching
+          for business opportunities that I am passionate about.
+          Growing up in Taichung, the city where the now world-renown tapioca milk tea or “Boba” tea originated, I
+          witnessed the culture shift as it evolved throughout my childhood. This old tradition of “gathering around the
+          corner tea house” which mainly involved an older generation, went through a transformation where people of all
+          ages and different communities, especially the younger generation, used as their preferred social gathering
+          spot. The “Modern Tea House” lifestyle began to take shape and quickly expanded beyond Taichung, and the
+          global community took notice. It was with the same spirit of bringing the community together that I decided to
+          open my own “tea house around the corner”.
+          “Our consumers purchase because of trust. What we do has true impact on their lives, so we need to be
+          responsible and source the best ingredients, test the recipe and have our customers’ best interest at heart
+          before putting out any product” - with this motto from my late Father-in-Law, I began months of research
+          across the world to locate the best ingredients and vendors to share with you.
+          Rabbit Rabbit Tea, is the perfect partner to help present the modern tea house infused with a healthy dose of
+          Aloha. While boba is not a new concept, what sets us apart is our sense of community around great food and a
+          genuine belief that good food / good company is good for the soul. We hope you like what we have prepared for
+          you, our Ohana.
           Happy Boba!
         </p>
         <img src="./images/RRT.jpg" style="width: 100%; max-width: 1000px" class="w3-margin-top" />
