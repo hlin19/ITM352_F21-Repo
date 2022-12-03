@@ -175,10 +175,7 @@ app.post("/register", function (request, response) {
 // To send product data to the client side (code from lab 13 exercise 5)
 app.get("/products.js", function (req, res, next) {
   res.type(`.js`);
-  var username = req.cookies["username"];
-  var str = `var currentUser = "${username}"; var products = ${JSON.stringify(
-    products
-  )};`;
+  var str = `var products = ${JSON.stringify(products)};`;
 
   res.send(str);
 });
@@ -238,8 +235,10 @@ function isNonNegativeInteger(inputString, returnErrors = false) {
 app.get("/cart.js", function (req, res, next) {
   res.type(`.js`);
   var orderArray = req.session.order_array;
+  var username = req.cookies["username"];
   var products_str = `var quantityArray = ${JSON.stringify(orderArray)};
-                      var products = ${JSON.stringify(products)};`;
+                      var products = ${JSON.stringify(products)};
+                      var currentUser = "${username}"; `;
   res.send(products_str);
 });
 
