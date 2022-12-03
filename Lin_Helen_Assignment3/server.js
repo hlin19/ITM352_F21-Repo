@@ -9,6 +9,60 @@ var session = require("express-session");
 var filename = "./user_data.json";
 var queryString = require("query-string");
 
+//add for RRT
+var mysql = require('mysql');
+console.log("Connecting to localhost...");
+var con = mysql.createConnection({
+    host: '127.0.0.1',
+    user: "root",
+    port: 3306,
+    database: "RRT",
+    password: ""
+});
+
+//add for RRT
+function query_DB(POST, response) {
+    if (isNonNegInt(POST['low_price']) &&
+        isNonNegInt(POST['high_price'])) { // Only query if we got a low and high price
+        low = POST['low_price']; // Grab the parameters from the submitted form
+        high = POST['high_price'];
+        query = "SELECT * FROM Room where price > " + low + " and price < " + high; // Build the query string
+        con.query(query, function(err, result, fields) { // Run the query
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+
+            // Now build the response: table of results and form to do another query
+            response_form = `<form action="Room-query.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>Room#</td><td><B>Hotel#</td><td><B>Type</td><td><B>Price</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].roomNo}</td>`;
+                response_form += `<td> ${res_json[i].hotelNo}</td>`;
+                response_form += `<td> ${res_json[i].type}</td>`;
+                response_form += `<td> ${res_json[i].price}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Another Query?"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("Enter some prices doofus!");
+    }
+}
+
+app.post("/process_query", function(request, response) {
+    let POST = request.body;
+    query_DB(POST, response);
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
+
 var products = require("./product.json"); //load in the products created in Products.json file
 var quantityArray = ["0", "0", "0", "0", "0"]; //initialize array of quantity
 var currentUser = "";
@@ -194,60 +248,62 @@ app.all("", function(request, response, next) {
 // Process purchase request (From Lab 13 Exercise 4)
 // Process purchase request (From Lab13 Exercise 4)
 app.post("/process_form", function(request, response) {
-            let POST = request.body;
-            request.session.order_array = [];
+    let POST = request.body;
+    request.session.order_array = [];
+    for (i = 0; i < products.Milk_Tea.length; i++) {
+        let quantity = POST[`quantity${i}`];
+        if (quantity == undefined) {
+            quantity = "0";
+        } else if (!isNonNegativeInteger(quantity)) {
+            response.send(`<h2>${quantity} is not a valid quantity!</h2>`);
+            quantity = "0";
+        } else if (quantity > 100) {
+            response.send(`<h2>${quantity} is not available!</h2>`);
+            quantity = "0";
+        } else {
+            quantityArray[i] = quantity;
+
             for (i = 0; i < products.Milk_Tea.length; i++) {
-                let quantity = POST[`quantity${i}`];
-                if (quantity == undefined) {
-                    quantity = "0";
-                } else if (!isNonNegativeInteger(quantity)) {
-                    response.send(`<h2>${quantity} is not a valid quantity!</h2>`);
-                    quantity = "0";
-                } else if (quantity > 100) {
-                    response.send(`<h2>${quantity} is not available!</h2>`);
-                    quantity = "0";
-                } else {
-                    quantityArray[i] = quantity;
-
-                    for (i = 0; i < products.Milk_Tea.length; i++) {
-                        request.session.order_array[i] = quantityArray[i];
-                    }
-
-                    response.redirect("/cart.html");
-                }
-
-                console.log(request.session["order_array"]);
-            });
-
-        //Data validation (found in Lab 3 Exercise 5)
-        function isNonNegativeInteger(inputString, returnErrors = false) {
-            // Validate that an input value is a non-negative integer
-            // inputString is the input string; returnErrors indicates how the function returns: true means return the
-            // array and false means return a boolean.
-
-            errors = []; // assume no errors at first
-            if (Number(inputString) != inputString) {
-                errors.push("Not a number!"); // Check if string is a number value
-            } else {
-                if (inputString < 0) errors.push("Negative value!"); // Check if it is non-negative
-                if (parseInt(inputString) != inputString) errors.push("Not an integer!"); // Check that it is an integer
+                request.session.order_array[i] = quantityArray[i];
             }
-            return returnErrors ? errors : errors.length == 0;
+
+            response.redirect("/cart.html");
         }
 
-        //to send invoice data to client side (From Lab 13 Exercise 4)
-        app.get("/cart.js", function(req, res, next) {
-            res.type(`.js`);
-            var orderArray = req.session.order_array;
-            var username = req.cookies["username"];
-            var products_str = `var quantityArray = ${JSON.stringify(orderArray)};
+        console.log(request.session["order_array"]);
+    }
+});
+
+//Data validation (found in Lab 3 Exercise 5)
+function isNonNegativeInteger(inputString, returnErrors = false) {
+    // Validate that an input value is a non-negative integer
+    // inputString is the input string; returnErrors indicates how the function returns: true means return the
+    // array and false means return a boolean.
+
+    errors = []; // assume no errors at first
+    if (Number(inputString) != inputString) {
+        errors.push("Not a number!"); // Check if string is a number value
+    } else {
+        if (inputString < 0) errors.push("Negative value!"); // Check if it is non-negative
+        if (parseInt(inputString) != inputString) errors.push("Not an integer!"); // Check that it is an integer
+    }
+    return returnErrors ? errors : errors.length == 0;
+}
+
+//to send invoice data to client side (From Lab 13 Exercise 4)
+app.get("/cart.js", function(req, res, next) {
+    res.type(`.js`);
+    var orderArray = req.session.order_array;
+    var username = req.cookies["username"];
+    var products_str = `var quantityArray = ${JSON.stringify(orderArray)};
                       var products = ${JSON.stringify(products)};
                       var currentUser = "${username}"; `;
-            res.send(products_str);
-        });
+    res.send(products_str);
+});
 
-        // route all other GET requests to files in public (Assignment 1 Instruction example)
-        app.use(express.static("./public"));
+// route all other GET requests to files in public (Assignment 1 Instruction example)
+app.use(express.static("./public"));
 
-        // start server (Assignment 1 Instruction example)
-        app.listen(port, () => console.log("listening on port " + port));
+// start server (Assignment 1 Instruction example)
+//RRT: change to port 8080
+app.listen(8080, () => console.log("listening on port 8080"));
