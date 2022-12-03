@@ -288,7 +288,7 @@ function query_DB(POST, response) {
             response.send(response_form);
         });
     } else {
-        response.send("Please go back and enter a price range. Thank you! :)");
+        response.send("Please go back and enter a price range (minimum and maximum). Thank you! :)");
     }
 }
 
