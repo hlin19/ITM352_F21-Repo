@@ -20,8 +20,10 @@ con.connect(function(err) {
 
 //didn't add to Helen's
 app.use(express.static('./public'));
+
 app.use(myParser.urlencoded({ extended: true }));
 
+//Helen's: stringToCheck = inputString
 function isNonNegInt(stringToCheck, returnErrors = false) {
     errors = []; // assume no errors at first
     if (Number(stringToCheck) != stringToCheck) errors.push('Not a number!'); // Check if string is a number value
@@ -62,6 +64,7 @@ function query_DB(POST, response) {
         response.send("Enter some prices doofus!");
     }
 }
+
 
 app.all('*', function(request, response, next) {
     console.log(request.method + ' to ' + request.path);

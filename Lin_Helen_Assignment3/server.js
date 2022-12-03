@@ -53,11 +53,13 @@ function query_DB(POST, response) {
     }
 }
 
+//add for RRT
 app.post("/process_query", function(request, response) {
     let POST = request.body;
     query_DB(POST, response);
 });
 
+//add for RRT
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
