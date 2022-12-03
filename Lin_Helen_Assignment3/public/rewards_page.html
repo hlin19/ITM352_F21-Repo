@@ -18,17 +18,53 @@
             font-family: "Raleway", sans-serif
         }
     </style>
-    <title>Find a Room!</title>
+    <title>Rewards Page</title>
 </head>
 
 <body>
-    <Form action="/process_query" method="POST">
-        <H1>Welcome to the Room Browsing Program</H1>
-        Enter minimum room price <input type='text' name='low_price'>
-        <BR> Enter maximum room price <input type='text' name='high_price'>
-        <BR>
-        <input type="submit" value="Submit">
-    </Form>
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <span class="w3-bar-item w3-right">Rabbit Rabbit Tea</span>
+    </div>
+    <center>
+        <Form action="/process_query" method="POST" class="w3-main" style="margin-top:43px;">
+            <H1>Rabbit Rabbit Tea Rewards</H1>
+            Enter minimum room price <input type='text' name='low_price'>
+            <BR> Enter maximum room price <input type='text' name='high_price'>
+            <BR>
+            <input type="submit" value="Submit">
+        </Form>
+        <div class="w3-main" style="margin-top:43px;">
+            <H1>Drink More, Earn More!</H1>
+            <h4>Every $1 spent = 2 Carrots</h4>
+            <h2>Free Rewards you can get with Carrots</h2>
+            <div class="w3-container" style="margin-top:43px;">
+                <table class="w3-table w3-striped w3-bordered w3-border">
+                    <tr>
+                        <td>1 Additional Topping of Your Choice</td>
+                        <td>15 Carrots</td>
+                    </tr>
+                    <tr>
+                        <td>2 Additional Toppings of Your Choice</td>
+                        <td>25 Carrots</td>
+                    </tr>
+                    <tr>
+                        <td>1 Free Milk Tea or Fresh Fruit Tea</td>
+                        <td>50 Carrots</td>
+                    </tr>
+                    <tr>
+                        <td>1 Free Cloud Smoothie </td>
+                        <td>65 Carrots</td>
+                    </tr>
+                    <tr>
+                        <td>Select In-store Merchandise</td>
+                        <td>100 Carrots</td>
+                    </tr>
+                </table><br>
+                <button class="w3-button w3-dark-grey">More Rewards  <i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </center>
 </body>
 
 </html>
