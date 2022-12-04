@@ -6,243 +6,220 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
 <style>
-  body,
-  html {
-    height: 100%;
-    font-family: "Inconsolata", sans-serif;
-  }
-
-  .bgimg {
-    background-position: center;
-    background-size: cover;
-    background-image: url("./images/Bubble_Tea.jpg");
-    min-height: 75%;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  #dropdown-content {
-    display: none;
-    position: absolute;
-
-  }
-
-  #dropdown:hover #dropdown-content {
-    display: block;
-  }
+    body,
+    html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+    
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/Bubble_Tea.jpg");
+        min-height: 75%;
+    }
+    
+    .menu {
+        display: none;
+    }
+    
+    #dropdown-content {
+        display: none;
+        position: absolute;
+    }
+    
+    #dropdown:hover #dropdown-content {
+        display: block;
+    }
 </style>
 
 <body>
-  <!-- Links (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-row w3-padding w3-black">
-      <div class="w3-col s3">
-        <a href="#" class="w3-button w3-block w3-black">HOME</a>
-      </div>
-      <div class="w3-col s3">
-        <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-      </div>
-      <div class="w3-col s3">
-        <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-      </div>
-      <div class="w3-col s3" id="dropdown">
-        <a class="w3-button w3-block w3-black">Login</a>
-        <div class="w3-col s3" id="dropdown-content">
-          <a href="login.html" class="w3-button w3-block w3-black">Customer Login</a>
-          <a href="login.html" class="w3-button w3-block w3-black">Admin Login</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header with image -->
-  <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-      <span class="w3-tag">Open from 9am to 10pm</span>
-    </div>
-    <div class="w3-display-middle w3-center">
-      <span class="w3-text-white" style="font-size: 90px"><br />Rabbit Rabbit Tea</span>
-    </div>
-    <div class="w3-display-bottomright w3-center w3-padding-large">
-      <span class="w3-text-white">99-115 Aiea heights drive ste 250 Honolulu, Hawaii 96701</span>
-    </div>
-  </header>
-
-  <!-- Add a background color and large text to the whole page -->
-  <div class="w3-sand w3-grayscale w3-large">
-    <!-- About Container -->
-    <div class="w3-container" id="about">
-      <div class="w3-content" style="max-width: 700px">
-        <h5 class="w3-center w3-padding-64">
-          <span class="w3-tag w3-wide">ABOUT THE Rabbit Rabiit Tea</span>
-        </h5>
-        <p>
-          My name is Alice and I was born and raised in Taichung, Taiwan. My father first visited Hawaii over 40 years
-          ago and completely fell in love with the islands. He vowed then, that one day he would bring all his daughters
-          back to Hawaii for better education, opportunities and brighter futures.
-        </p>
-        <p>
-          Some years later as a teenager in this new city, I was immediately enamored with the Hawaiian culture, food,
-          and sights. But most importantly, the warmth of the people and the Aloha spirit welcomed me with open arms.
-          Those were some of the most formidable years that helped mold the person I am today. Not to mention, it was
-          also where I met my husband all those years ago! Although I left for college on the Mainland in pursuit of my
-          dreams and we eventually married and settled down in different parts of the world, there was no hesitation on
-          where to bring our children back to, when it was time. Hawaii is where my heart is. Where it all began, my
-          full-circle moment.
-          The first few years since our return to the islands were spent focusing on our children to help them settle
-          into their new environment, new schools and make new friends. Now that they have adapted to the island
-          lifestyle, it is time to focus on myself. With the full support of my husband and children, I began searching
-          for business opportunities that I am passionate about.
-          Growing up in Taichung, the city where the now world-renown tapioca milk tea or “Boba” tea originated, I
-          witnessed the culture shift as it evolved throughout my childhood. This old tradition of “gathering around the
-          corner tea house” which mainly involved an older generation, went through a transformation where people of all
-          ages and different communities, especially the younger generation, used as their preferred social gathering
-          spot. The “Modern Tea House” lifestyle began to take shape and quickly expanded beyond Taichung, and the
-          global community took notice. It was with the same spirit of bringing the community together that I decided to
-          open my own “tea house around the corner”.
-          “Our consumers purchase because of trust. What we do has true impact on their lives, so we need to be
-          responsible and source the best ingredients, test the recipe and have our customers’ best interest at heart
-          before putting out any product” - with this motto from my late Father-in-Law, I began months of research
-          across the world to locate the best ingredients and vendors to share with you.
-          Rabbit Rabbit Tea, is the perfect partner to help present the modern tea house infused with a healthy dose of
-          Aloha. While boba is not a new concept, what sets us apart is our sense of community around great food and a
-          genuine belief that good food / good company is good for the soul. We hope you like what we have prepared for
-          you, our Ohana.
-          Happy Boba!
-        </p>
-        <img src="./images/RRT.jpg" style="width: 100%; max-width: 1000px" class="w3-margin-top" />
-        <p><strong>Opening hours:</strong> Mon-Fri from 9am to 10pm.</p>
-        <p><strong>Address:</strong> 99-115 Aiea heights drive ste 250 Honolulu, Hawaii 96701</p>
-      </div>
-    </div>
-
-    <!-- Menu Container -->
-    <div class="w3-container" id="menu">
-      <div class="w3-content" style="max-width: 700px">
-        <h5 class="w3-center w3-padding-48">
-          <span class="w3-tag w3-wide">THE MENU</span>
-        </h5>
-
-        <div class="w3-row w3-center w3-card w3-padding">
-          <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-            <div class="w3-col s6 tablink">Eat</div>
-          </a>
-          <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-            <div class="w3-col s6 tablink">Drink</div>
-          </a>
-        </div>
-
-        <div id="Eat" class="w3-center container menu w3-padding-48 w3-card">
-          <h5>Coming Soon</h5>
-        </div>
-
-        <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-          <h5>Toppings Selection</h5>
-          <p class="w3-text-grey">
-            Regular Boba, Egg Pudding, Lychee Jelly, Grass Jelly
-          </p>
-          <br />
-          <h5>Strawberry Milk Tea</h5>
-          <p class="w3-text-grey">made with fresh strawberry and jasmine tea</p>
-          <br />
-          <h5>Matcha Milk Tea</h5>
-          <p class="w3-text-grey">
-            made with powdered matcha mixed and fresh jasmine tea
-          </p>
-          <br />
-          <h5>Jasmine Milk Tea</h5>
-          <p class="w3-text-grey">made with fresh brew jasmine tea mixed</p>
-          <br />
-          <h5>Honeydew Milk Tea</h5>
-          <p class="w3-text-grey">
-            made with fresh honeydew and contains no caffeine
-          </p>
-          <br />
-          <h5>Taro Milk Tea</h5>
-          <p class="w3-text-grey">
-            made with powdered taro and fresh jasmine tea
-          </p>
-          <br />
-        </div>
-      </div>
-      <div class="w3-container" id="menu">
-        <div class="w3-content" style="max-width: 700px">
-          <h5 class="w3-center w3-padding-48">
-            <!-- To like order now buttone to order_page.htlm for customers to order product -->
-            <!-- Template found on W3School -->
-            <button onclick="document.getElementById('id01').style.display='block'"
-              class="w3-button w3-green w3-large">Order Now</button>
-            <div id="id01" class="w3-modal">
-              <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                <div class="w3-center"><br>
-                  <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-                  <img src="https://www.fhrinstitute.sr/wp-content/uploads/2020/07/Profile-Icon.png" alt="Avatar"
-                    style="width:30%" class="w3-circle w3-margin-top">
-                </div>
-
-                <form action="./login" method="post" class="w3-container">
-                  <div class="w3-section">
-                    <label><b>Username</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username"
-                      name="username" required>
-                    <label><b>Password</b></label>
-                    <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password" required>
-                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                    <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-                  </div>
-                </form>
-
-                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                  <button onclick="document.getElementById('id01').style.display='none'" type="button"
-                    class="w3-button w3-red">Cancel</button>
-                  <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-                </div>
-
-              </div>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3">
+                <a href="#" class="w3-button w3-block w3-black">HOME</a>
             </div>
-            <script>
-              function loadPage() {
-                window.location.href = "/";
-              }
-            </script>
-          </h5>
+            <div class="w3-col s3">
+                <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+            </div>
+            <div class="w3-col s3" id="dropdown">
+                <a class="w3-button w3-block w3-black">Login</a>
+                <div class="w3-col s3" id="dropdown-content">
+                    <a href="login.html" class="w3-button w3-block w3-black">Customer Login</a>
+                    <a href="login.html" class="w3-button w3-block w3-black">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-          <!-- End page content -->
+    <!-- Header with image -->
+    <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+            <span class="w3-tag">Open from 9am to 10pm</span>
+        </div>
+        <div class="w3-display-middle w3-center">
+            <span class="w3-text-white" style="font-size: 90px"><br />Rabbit Rabbit Tea</span>
+        </div>
+        <div class="w3-display-bottomright w3-center w3-padding-large">
+            <span class="w3-text-white">99-115 Aiea heights drive ste 250 Honolulu, Hawaii 96701</span>
+        </div>
+    </header>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="w3-sand w3-grayscale w3-large">
+        <!-- About Container -->
+        <div class="w3-container" id="about">
+            <div class="w3-content" style="max-width: 700px">
+                <h5 class="w3-center w3-padding-64">
+                    <span class="w3-tag w3-wide">ABOUT THE Rabbit Rabbit Tea</span>
+                </h5>
+                <p>
+                    My name is Alice and I was born and raised in Taichung, Taiwan. My father first visited Hawaii over 40 years ago and completely fell in love with the islands. He vowed then, that one day he would bring all his daughters back to Hawaii for better education,
+                    opportunities and brighter futures.
+                </p>
+                <p>
+                    Some years later as a teenager in this new city, I was immediately enamored with the Hawaiian culture, food, and sights. But most importantly, the warmth of the people and the Aloha spirit welcomed me with open arms. Those were some of the most formidable
+                    years that helped mold the person I am today. Not to mention, it was also where I met my husband all those years ago! Although I left for college on the Mainland in pursuit of my dreams and we eventually married and settled down in
+                    different parts of the world, there was no hesitation on where to bring our children back to, when it was time. Hawaii is where my heart is. Where it all began, my full-circle moment. The first few years since our return to the islands
+                    were spent focusing on our children to help them settle into their new environment, new schools and make new friends. Now that they have adapted to the island lifestyle, it is time to focus on myself. With the full support of my husband
+                    and children, I began searching for business opportunities that I am passionate about. Growing up in Taichung, the city where the now world-renown tapioca milk tea or “Boba” tea originated, I witnessed the culture shift as it evolved
+                    throughout my childhood. This old tradition of “gathering around the corner tea house” which mainly involved an older generation, went through a transformation where people of all ages and different communities, especially the younger
+                    generation, used as their preferred social gathering spot. The “Modern Tea House” lifestyle began to take shape and quickly expanded beyond Taichung, and the global community took notice. It was with the same spirit of bringing the
+                    community together that I decided to open my own “tea house around the corner”. “Our consumers purchase because of trust. What we do has true impact on their lives, so we need to be responsible and source the best ingredients, test
+                    the recipe and have our customers’ best interest at heart before putting out any product” - with this motto from my late Father-in-Law, I began months of research across the world to locate the best ingredients and vendors to share
+                    with you. Rabbit Rabbit Tea, is the perfect partner to help present the modern tea house infused with a healthy dose of Aloha. While boba is not a new concept, what sets us apart is our sense of community around great food and a genuine
+                    belief that good food / good company is good for the soul. We hope you like what we have prepared for you, our Ohana. Happy Boba!
+                </p>
+                <img src="./images/RRT.jpg" style="width: 100%; max-width: 1000px" class="w3-margin-top" />
+                <p><strong>Opening hours:</strong> Mon-Fri from 9am to 10pm.</p>
+                <p><strong>Address:</strong> 99-115 Aiea heights drive ste 250 Honolulu, Hawaii 96701</p>
+            </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-          <p>
-            Powered by
-            <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-              class="w3-hover-text-green">w3.css</a>
-          </p>
-        </footer>
+        <!-- Menu Container -->
+        <div class="w3-container" id="menu">
+            <div class="w3-content" style="max-width: 700px">
+                <h5 class="w3-center w3-padding-48">
+                    <span class="w3-tag w3-wide">THE MENU</span>
+                </h5>
 
-        <script>
-          // Tabbed Menu
-          function openMenu(evt, menuName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("menu");
-            for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(
-                " w3-dark-grey",
-                ""
-              );
-            }
-            document.getElementById(menuName).style.display = "block";
-            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-          }
-          document.getElementById("myLink").click();
-        </script>
+                <div class="w3-row w3-center w3-card w3-padding">
+                    <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');" id="myLink">
+                        <div class="w3-col s6 tablink">Drink</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');">
+                        <div class="w3-col s6 tablink">Eat</div>
+                    </a>
+                </div>
+
+                <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+                    <h5>Toppings Selection</h5>
+                    <p class="w3-text-grey">
+                        Regular Boba, Egg Pudding, Lychee Jelly, Grass Jelly
+                    </p>
+                    <br />
+                    <h5>Strawberry Milk Tea</h5>
+                    <p class="w3-text-grey">made with fresh strawberry and jasmine tea</p>
+                    <br />
+                    <h5>Matcha Milk Tea</h5>
+                    <p class="w3-text-grey">
+                        made with powdered matcha mixed and fresh jasmine tea
+                    </p>
+                    <br />
+                    <h5>Jasmine Milk Tea</h5>
+                    <p class="w3-text-grey">made with fresh brew jasmine tea mixed</p>
+                    <br />
+                    <h5>Honeydew Milk Tea</h5>
+                    <p class="w3-text-grey">
+                        made with fresh honeydew and contains no caffeine
+                    </p>
+                    <br />
+                    <h5>Taro Milk Tea</h5>
+                    <p class="w3-text-grey">
+                        made with powdered taro and fresh jasmine tea
+                    </p>
+                    <br />
+                </div>
+
+                <div id="Eat" class="w3-center container menu w3-padding-48 w3-card">
+                    <h5>Coming Soon</h5>
+                </div>
+
+            </div>
+            <div class="w3-container" id="menu">
+                <div class="w3-content" style="max-width: 700px">
+                    <h5 class="w3-center w3-padding-48">
+                        <!-- To like order now buttone to order_page.htlm for customers to order product -->
+                        <!-- Template found on W3School -->
+                        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Order Now</button>
+                        <div id="id01" class="w3-modal">
+                            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                                <div class="w3-center"><br>
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                                    <img src="https://www.fhrinstitute.sr/wp-content/uploads/2020/07/Profile-Icon.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                                </div>
+
+                                <form action="./login" method="post" class="w3-container">
+                                    <div class="w3-section">
+                                        <label><b>Username</b></label>
+                                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
+                                        <label><b>Password</b></label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password" required>
+                                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+                                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                                    </div>
+                                </form>
+
+                                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                                    <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+                                    <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <script>
+                            function loadPage() {
+                                window.location.href = "/";
+                            }
+                        </script>
+                    </h5>
+
+                    <!-- End page content -->
+                </div>
+
+                <!-- Footer -->
+                <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+                    <p>
+                        Powered by
+                        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a>
+                    </p>
+                </footer>
+
+                <script>
+                    // Tabbed Menu
+                    function openMenu(evt, menuName) {
+                        var i, x, tablinks;
+                        x = document.getElementsByClassName("menu");
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablink");
+                        for (i = 0; i < x.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(
+                                " w3-dark-grey",
+                                ""
+                            );
+                        }
+                        document.getElementById(menuName).style.display = "block";
+                        evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+                    }
+                    document.getElementById("myLink").click();
+                </script>
 </body>
 
 </html>
