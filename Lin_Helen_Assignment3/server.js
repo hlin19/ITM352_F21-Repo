@@ -332,7 +332,7 @@ function query_DB_range(POST, response) {
             // Now build the response: table of results and form to do another query
             response_form = `<form action="rewards_utilization.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStatus</td></b>`;
+            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStamps</td></b>`;
             for (i in res_json) {
                 response_form += `<tr><td> ${res_json[i].CustomerID}</td>`;
                 response_form += `<td> ${res_json[i].FName}</td>`;
@@ -371,7 +371,7 @@ function query_DB_name(POST, response) {
             // Now build the response: table of results and form to do another query
             response_form = `<form action="rewards_utilization.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStatus</td></b>`;
+            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStamps</td></b>`;
             for (i in res_json) {
                 response_form += `<tr><td> ${res_json[i].CustomerID}</td>`;
                 response_form += `<td> ${res_json[i].FName}</td>`;
