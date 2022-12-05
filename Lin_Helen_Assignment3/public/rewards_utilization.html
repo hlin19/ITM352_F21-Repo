@@ -1,55 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: "Raleway", sans-serif
-        }
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Raleway", sans-serif;
+      }
     </style>
     <title>Rewards Utilization Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-        <span class="w3-bar-item w3-right">Rabbit Rabbit Tea</span>
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+      <span class="w3-bar-item w3-right">
+        <a href="queries.html" class="w3-button w3-block w3-black"
+          >Rabbit Rabbit Tea</a
+        ></span
+      >
     </div>
-    <div style="margin-top:75px;">
-        <center>
-            <H1>Customer Rewards Utilization</H1>
-            <H3>Find current information on customer rewards status.</H3>
-            <Form action="/process_utilization_range" method="POST" class="w3-main" style="margin-top:50px;">
-                <div class="w3-main" style="margin-top:30px;">
-                    <h4>View customers by amount of reward stamps. Please input a stamp range.</h4>
-                </div>
-                Enter minimum stamps <input type='text' name='low_stamp'>
-                <BR> Enter maximum stamps <input type='text' name='high_stamp'>
-                <BR>
-                <input type="submit" value="Submit">
-            </Form>
-            <Form action="/process_utilization_name" method="POST" class="w3-main" style="margin-top:50px;">
-                <div class="w3-main" style="margin-top:30px;">
-                    <h4>View a customer's rewards status by name. Please input a customer's name.</h4>
-                </div>
-                Enter first name <input type='text' name='low_stamp'>
-                <BR> Enter last name <input type='text' name='high_stamp'>
-                <BR>
-                <input type="submit" value="Submit">
-            </Form>
-        </center>
+    <div style="margin-top: 75px">
+      <center>
+        <h1>Customer Rewards Utilization</h1>
+        <h3>Find current information on customer rewards status.</h3>
+        <img
+          src="./images/Reward_Chart.png"
+          style="
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+        <form
+          action="/process_utilization_range"
+          method="POST"
+          class="w3-main"
+          style="margin-top: 50px"
+        >
+          <div class="w3-main" style="margin-top: 30px">
+            <h4>
+              View customers by amount of reward stamps. Please input a stamp
+              range.
+            </h4>
+          </div>
+          Enter minimum stamps
+          <input type="text" name="low_stamp" style="margin-bottom: 20px" />
+          <br />
+          Enter maximum stamps
+          <input type="text" name="high_stamp" style="margin-bottom: 20px" />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+        <form
+          action="/process_utilization_name"
+          method="POST"
+          class="w3-main"
+          style="margin-top: 50px"
+        >
+          <div class="w3-main" style="margin-top: 30px">
+            <h4>
+              View a customer's rewards status by name. Please input a
+              customer's name.
+            </h4>
+          </div>
+          Enter first name
+          <input type="text" name="low_stamp" style="margin-bottom: 20px" />
+          <br />
+          Enter last name
+          <input type="text" name="high_stamp" style="margin-bottom: 20px" />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </center>
     </div>
-</body>
-
+  </body>
 </html>

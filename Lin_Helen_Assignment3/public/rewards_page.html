@@ -1,70 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: "Raleway", sans-serif
-        }
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Raleway", sans-serif;
+      }
     </style>
     <title>Rewards Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-        <span class="w3-bar-item w3-right">Rabbit Rabbit Tea</span>
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+      <span class="w3-bar-item w3-right">
+        <a href="dashboard.html" class="w3-button w3-block w3-black"
+          >Rabbit Rabbit Tea</a
+        ></span
+      >
     </div>
     <center>
-        <Form action="/process_customer_reward" method="POST" class="w3-main" style="margin-top:43px;">
-            <H1>Rabbit Rabbit Tea Rewards</H1>
-            Enter minimum room price <input type='text' name='low_price'>
-            <BR> Enter maximum room price <input type='text' name='high_price'>
-            <BR>
-            <input type="submit" value="Submit">
-        </Form>
-        <div class="w3-main" style="margin-top:43px;">
-            <H1>Drink More, Earn More!</H1>
-            <h4>Every $1 spent = 1 Carrot Stamp</h4>
-            <h2>Free Rewards you can redeem with Carrot Stamps</h2>
-            <div class="w3-container" style="margin-top:43px;">
-                <table class="w3-table w3-striped w3-bordered w3-border">
-                    <tr>
-                        <td>1 Additional Topping of Your Choice</td>
-                        <td>3 Stamps</td>
-                    </tr>
-                    <tr>
-                        <td>2 Additional Toppings of Your Choice</td>
-                        <td>5 Stamps</td>
-                    </tr>
-                    <tr>
-                        <td>1 Free Milk Tea or Fresh Fruit Tea</td>
-                        <td>10 Stamps</td>
-                    </tr>
-                    <tr>
-                        <td>1 Free Cloud Smoothie </td>
-                        <td>12 Stamps</td>
-                    </tr>
-                    <tr>
-                        <td>Select In-store Merchandise</td>
-                        <td>Varies</td>
-                    </tr>
-                </table><br>
-                <button class="w3-button w3-dark-grey">More Rewards  <i class="fa fa-arrow-right"></i></button>
-            </div>
+      <form
+        action="/process_customer_reward"
+        method="POST"
+        class="w3-main"
+        style="margin-top: 43px"
+      >
+        <h1>Rabbit Rabbit Tea Rewards</h1>
+        Enter Customer Last Name
+        <input type="text" name="low_price" style="margin-bottom: 20px" />
+        <br />
+        Enter Customer First Name
+        <input type="text" name="high_price" style="margin-bottom: 20px" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+      <div class="w3-main" style="margin-top: 43px">
+        <h1>Drink More, Earn More!</h1>
+        <h4>Every $1 spent = 1 Carrot Stamp</h4>
+        <img
+          src="./images/Stamp Card.PNG"
+          style="
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+        <h2>Free Rewards you can redeem with Carrot Stamps</h2>
+        <div class="w3-container" style="margin-top: 43px">
+          <table class="w3-table w3-striped w3-bordered w3-border">
+            <tr>
+              <td>1 Additional Topping of Your Choice</td>
+              <td>3 Stamps</td>
+            </tr>
+            <tr>
+              <td>50% off Whole Order</td>
+              <td>5 Stamps</td>
+            </tr>
+            <tr>
+              <td>1 Free Milk Tea or Fresh Fruit Tea</td>
+              <td>10 Stamps</td>
+            </tr>
+            <tr>
+              <td>1 Free Cloud Smoothie</td>
+              <td>12 Stamps</td>
+            </tr>
+            <tr>
+              <td>Select In-store Merchandise</td>
+              <td>Varies</td>
+            </tr>
+          </table>
+          <br />
+          <button class="w3-button w3-dark-grey">
+            More Rewards <i class="fa fa-arrow-right"></i>
+          </button>
         </div>
+      </div>
     </center>
-</body>
-
+  </body>
 </html>

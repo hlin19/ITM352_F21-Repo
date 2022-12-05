@@ -1,44 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: "Raleway", sans-serif
-        }
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Raleway", sans-serif;
+      }
     </style>
     <title>Monthly Spending Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-        <span class="w3-bar-item w3-right">Rabbit Rabbit Tea</span>
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+      <span class="w3-bar-item w3-right">
+        <a href="dashboard.html" class="w3-button w3-block w3-black"
+          >Rabbit Rabbit Tea</a
+        ></span
+      >
     </div>
     <center>
-        <Form action="/process_query" method="POST" class="w3-main" style="margin-top:75px;">
-            <H1>Rabbit Rabbit Tea Monthly Spending</H1>
-            <div class="w3-main" style="margin-top:30px;">
-                <H1>Sip and Save!</H1>
-                <h4>Want to drink boba but on a budget? Easily search for drinks within your price range!</h4>
-            </div>
-            Enter minimum price <input type='text' name='low_price'>
-            <BR> Enter maximum price <input type='text' name='high_price'>
-            <BR>
-            <input type="submit" value="Submit">
-        </Form>
+      <form
+        action="/process_query"
+        method="POST"
+        class="w3-main"
+        style="margin-top: 75px"
+      >
+        <h1>Rabbit Rabbit Tea Monthly Spending</h1>
+        <div class="w3-main" style="margin-top: 30px">
+          <img
+            src="./images/Review_1.jpg"
+            style="
+              width: 100%;
+              max-width: 500px;
+              height: 400px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          />
+          <h1>Sip and Save!</h1>
+          <h4>
+            Want to drink boba but on a budget? Easily search for drinks within
+            your price range!
+          </h4>
+        </div>
+        Enter minimum price
+        <input type="text" name="low_price" style="margin-bottom: 20px" />
+        <br />
+        Enter maximum price
+        <input type="text" name="high_price" style="margin-bottom: 20px" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
     </center>
-</body>
-
+  </body>
 </html>
