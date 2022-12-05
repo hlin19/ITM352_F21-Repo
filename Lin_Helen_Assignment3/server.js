@@ -283,7 +283,7 @@ function query_DB_reward(POST, response) {
         Lname = JSON.stringify(POST['Lname']);
         CustomerID = POST['CustomerID'];
 
-        query = "SELECT FName, LName, RewardAmt, Description FROM Customer, Redeemable WHERE FName = " + Fname + " and LName = " + Lname + " and CustomerID = " + CustomerID + " and RewardStatus > RewardAmt"; // Build the query string
+        query = "SELECT FName, LName, RewardStatus, RewardAmt, Description FROM Customer, Redeemable WHERE FName = " + Fname + " and LName = " + Lname + " and CustomerID = " + CustomerID + " and RewardStatus > RewardAmt"; // Build the query string
         con.query(query, function(err, result, fields) { // Run the query
             if (err) throw err;
             console.log(result);
@@ -294,9 +294,10 @@ function query_DB_reward(POST, response) {
             // Now build the response: table of results and form to do another query
             response_form = `<form action="rewards_page.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>RewardStampsNeeded</td></b><td><B>RedeemableReward</td>`;
+            response_form += `<td><B>NumOfStamps</td><td><B>RewardStampsNeeded</td></b><td><B>RedeemableReward</td>`;
             for (i in res_json) {
-                response_form += `<tr><td> ${res_json[i].RewardAmt}</td>`;
+                response_form += `<tr><td> ${res_json[i].RewardStatus}</td>`;
+                response_form += `<td> ${res_json[i].RewardAmt}</td>`;
                 response_form += `<td> ${res_json[i].Description}</td></tr>`;
             }
             response_form += "</table>";
