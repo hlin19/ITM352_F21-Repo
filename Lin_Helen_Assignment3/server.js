@@ -374,6 +374,45 @@ app.post("/process_utilization_range", function(request, response) {
     query_DB(POST, response);
 });
 
+//add for RRT Rewards Utilization (name)
+function query_DB(POST, response) {
+    if (isNonNegativeInteger(POST['low_stamp']) &&
+        isNonNegativeInteger(POST['high_stamp'])) { // Only query if we got a low and high price
+        low = POST['low_stamp']; // Grab the parameters from the submitted form
+        high = POST['high_stamp'];
+        query = "SELECT CustomerID, FName, LName, RewardStatus FROM Customer where RewardStatus > " + low + " and RewardStatus < " + high; // Build the query string
+        con.query(query, function(err, result, fields) { // Run the query
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+
+            // Now build the response: table of results and form to do another query
+            response_form = `<form action="rewards_utilization.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStatus</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].CustomerID}</td>`;
+                response_form += `<td> ${res_json[i].FName}</td>`;
+                response_form += `<td> ${res_json[i].LName}</td>`;
+                response_form += `<td> ${res_json[i].RewardStatus}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("Please go back and enter a customer's first and last name.");
+    }
+}
+
+//add for RRT Rewards Utilization (name)
+app.post("/process_utilization_name", function(request, response) {
+    let POST = request.body;
+    query_DB(POST, response);
+});
+
 //add for RRT
 con.connect(function(err) {
     if (err) throw err;
