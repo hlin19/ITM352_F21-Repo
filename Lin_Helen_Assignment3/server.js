@@ -376,11 +376,11 @@ app.post("/process_utilization_range", function(request, response) {
 
 //add for RRT Rewards Utilization (name)
 function query_DB(POST, response) {
-    if (isNonNegativeInteger(POST['low_stamp']) &&
-        isNonNegativeInteger(POST['high_stamp'])) { // Only query if we got a low and high price
-        low = POST['low_stamp']; // Grab the parameters from the submitted form
-        high = POST['high_stamp'];
-        query = "SELECT CustomerID, FName, LName, RewardStatus FROM Customer where RewardStatus > " + low + " and RewardStatus < " + high; // Build the query string
+    if (typeof(POST['Fname']) != 'undefined' &&
+        typeof(POST['Lname']) != 'undefined') { // Only query if we got a low and high price
+        Fname = JSON.stringify(POST['Fname']); // Grab the parameters from the submitted form
+        Lname = JSON.stringify(POST['Lname']);
+        query = "SELECT CustomerID, FName, LName, RewardStatus FROM Customer WHERE FName = " + Fname + " and LName = " + Lname; // Build the query string
         con.query(query, function(err, result, fields) { // Run the query
             if (err) throw err;
             console.log(result);
