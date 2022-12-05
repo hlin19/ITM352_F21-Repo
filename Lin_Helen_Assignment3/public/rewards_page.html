@@ -27,18 +27,22 @@
         <span class="w3-bar-item w3-right">Rabbit Rabbit Tea</span>
     </div>
     <center>
-        <Form action="/process_customer_reward" method="POST" class="w3-main" style="margin-top:43px;">
+        <div class="w3-main" style="margin-top:50px;">
             <H1>Rabbit Rabbit Tea Rewards</H1>
-            Enter minimum room price <input type='text' name='low_price'>
-            <BR> Enter maximum room price <input type='text' name='high_price'>
-            <BR>
-            <input type="submit" value="Submit">
-        </Form>
-        <div class="w3-main" style="margin-top:43px;">
-            <H1>Drink More, Earn More!</H1>
+            <H2>Drink More, Earn More!</H2>
             <h4>Every $1 spent = 1 Carrot Stamp</h4>
-            <h2>Free Rewards you can redeem with Carrot Stamps</h2>
             <div class="w3-container" style="margin-top:43px;">
+                <h3>Re-enter your name and customer ID to see some of the many rewards you can redeem!</h3>
+                <Form action="/process_customer_reward" method="POST" class="w3-main" style="margin-top:30px;">
+                    Enter first name <input type='text' name='Fname'>
+                    <BR>Enter last name <input type='text' name='Lname'>
+                    <BR>Enter customer ID <input type='text' name='CustomerID'>
+                    <BR>
+                    <input type="submit" value="Submit">
+                </Form>
+            </div>
+            <div class="w3-container" style="margin-top:38px;">
+                <h2>Free Rewards you can redeem with Carrot Stamps</h2>
                 <table class="w3-table w3-striped w3-bordered w3-border">
                     <tr>
                         <td>1 Additional Topping of Your Choice</td>

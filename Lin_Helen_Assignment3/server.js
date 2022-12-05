@@ -273,13 +273,17 @@ app.post("/process_query", function(request, response) {
     query_DB(POST, response);
 });
 
-//add for RRT Customer Rewards page
-function query_DB(POST, response) {
-    if (isNonNegativeInteger(POST['low_price']) &&
-        isNonNegativeInteger(POST['high_price'])) { // Only query if we got a low and high price
-        low = POST['low_price']; // Grab the parameters from the submitted form
-        high = POST['high_price'];
-        query = "SELECT * FROM Drink where price > " + low + " and price < " + high; // Build the query string
+//add for RRT Customer Reward page
+function query_DB_reward(POST, response) {
+    if (typeof(POST['Fname']) !== 'undefined' &&
+        typeof(POST['Lname']) !== 'undefined' &&
+        isNonNegativeInteger(POST['CustomerID'])
+    ) {
+        Fname = JSON.stringify(POST['Fname']);
+        Lname = JSON.stringify(POST['Lname']);
+        CustomerID = POST['CustomerID'];
+
+        query = "SELECT FName, LName, RewardAmt, Description FROM Customer, Redeemable WHERE FName = " + Fname + " and LName = " + Lname + " and CustomerID = " + CustomerID + " and RewardStatus > RewardAmt"; // Build the query string
         con.query(query, function(err, result, fields) { // Run the query
             if (err) throw err;
             console.log(result);
@@ -290,28 +294,28 @@ function query_DB(POST, response) {
             // Now build the response: table of results and form to do another query
             response_form = `<form action="rewards_page.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>Drink Name</td><td><B>Price</td></b>`;
+            response_form += `<td><B>RewardStampsNeeded</td></b><td><B>RedeemableReward</td>`;
             for (i in res_json) {
-                response_form += `<tr><td> ${res_json[i].DrinkName}</td>`;
-                response_form += `<td> $${res_json[i].Price}</td></tr>`;
+                response_form += `<tr><td> ${res_json[i].RewardAmt}</td>`;
+                response_form += `<td> ${res_json[i].Description}</td></tr>`;
             }
             response_form += "</table>";
             response_form += `<input type="submit" value="Click to Go Back"> </form>`;
             response.send(response_form);
         });
     } else {
-        response.send("Please go back and login. Thank you! :)");
+        response.send("Please go back and re-enter your name and customer ID. Thank you! :)");
     }
 }
 
-//add for RRT Customer Reward
+//add for RRT Customer Reward page
 app.post("/process_customer_reward", function(request, response) {
     let POST = request.body;
-    query_DB(POST, response);
+    query_DB_reward(POST, response);
 });
 
 //add for RRT Rewards Utilization (range)
-function query_DB(POST, response) {
+function query_DB_range(POST, response) {
     if (isNonNegativeInteger(POST['low_stamp']) &&
         isNonNegativeInteger(POST['high_stamp'])) { // Only query if we got a low and high price
         low = POST['low_stamp']; // Grab the parameters from the submitted form
@@ -346,11 +350,11 @@ function query_DB(POST, response) {
 //add for RRT Rewards Utilization (range)
 app.post("/process_utilization_range", function(request, response) {
     let POST = request.body;
-    query_DB(POST, response);
+    query_DB_range(POST, response);
 });
 
 //add for RRT Rewards Utilization (name)
-function query_DB(POST, response) {
+function query_DB_name(POST, response) {
     if (typeof(POST['Fname']) != 'undefined' &&
         typeof(POST['Lname']) != 'undefined') { // Only query if we got a low and high price
         Fname = JSON.stringify(POST['Fname']); // Grab the parameters from the submitted form
@@ -385,7 +389,7 @@ function query_DB(POST, response) {
 //add for RRT Rewards Utilization (name)
 app.post("/process_utilization_name", function(request, response) {
     let POST = request.body;
-    query_DB(POST, response);
+    query_DB_name(POST, response);
 });
 
 //add for RRT
