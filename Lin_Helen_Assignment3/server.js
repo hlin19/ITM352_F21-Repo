@@ -183,10 +183,6 @@ app.post("/register", function (request, response) {
     response.redirect("/login");
   }
 });
-// user_data[user_name] = {};
-// user_data[user_name].name = user_name;
-// user_data[user_name].password = user_pass;
-// user_data[user_name].email = user_email;
 
 // To send product data to the client side (code from lab 13 exercise 5)
 app.get("/products.js", function (req, res, next) {
