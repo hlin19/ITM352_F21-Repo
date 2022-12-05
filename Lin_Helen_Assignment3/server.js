@@ -42,27 +42,6 @@ if (fs.existsSync(filename)) {
     console.log("Enter the correct filename bozo!");
 }
 
-//From Lab 14
-//default login
-// username = "newuser";
-// user_data[username] = {};
-// user_data[username].password = "newpass";
-// user_data[username].email = "newuser@user.com";
-
-// app.get("/", function (request, response) {
-//   // Give a simple login form
-//   str = `
-// <body>
-// <form action="" method="POST">
-// <input type="text" name="username" size="40" placeholder="enter username" ><br />
-// <input type="password" name="password" size="40" placeholder="enter password"><br />
-// <input type="submit" value="Submit" id="submit">
-// </form>
-// </body>
-//     `;
-//   response.send(str);
-// });
-
 app.post("/login", function(request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
     console.log("Got a POST to login");
@@ -183,10 +162,6 @@ app.post("/register", function(request, response) {
         response.redirect("/login");
     }
 });
-// user_data[user_name] = {};
-// user_data[user_name].name = user_name;
-// user_data[user_name].password = user_pass;
-// user_data[user_name].email = user_email;
 
 // To send product data to the client side (code from lab 13 exercise 5)
 app.get("/products.js", function(req, res, next) {
