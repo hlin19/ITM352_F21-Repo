@@ -341,7 +341,7 @@ function query_DB(POST, response) {
         isNonNegativeInteger(POST['high_stamp'])) { // Only query if we got a low and high price
         low = POST['low_stamp']; // Grab the parameters from the submitted form
         high = POST['high_stamp'];
-        query = "SELECT * FROM Customer where RewardStatus > " + low + " and RewardStatus < " + high; // Build the query string
+        query = "SELECT CustomerID, FName, LName, RewardStatus FROM Customer where RewardStatus > " + low + " and RewardStatus < " + high; // Build the query string
         con.query(query, function(err, result, fields) { // Run the query
             if (err) throw err;
             console.log(result);
@@ -352,14 +352,11 @@ function query_DB(POST, response) {
             // Now build the response: table of results and form to do another query
             response_form = `<form action="rewards_utilization.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>Bdate</td><td><B>Email</td><td><B>PhoneNum</td><td><B>RewardStatus</td></b>`;
+            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStatus</td></b>`;
             for (i in res_json) {
                 response_form += `<tr><td> ${res_json[i].CustomerID}</td>`;
                 response_form += `<td> ${res_json[i].FName}</td>`;
                 response_form += `<td> ${res_json[i].LName}</td>`;
-                response_form += `<td> ${res_json[i].Bdate}</td>`;
-                response_form += `<td> ${res_json[i].Email}</td>`;
-                response_form += `<td> ${res_json[i].PhoneNum}</td>`;
                 response_form += `<td> ${res_json[i].RewardStatus}</td></tr>`;
             }
             response_form += "</table>";
