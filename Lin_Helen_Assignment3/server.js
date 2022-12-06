@@ -14,7 +14,7 @@ console.log("Connecting to localhost...");
 var con = mysql.createConnection({
     host: '127.0.0.1',
     user: "root",
-    port: 3306,
+    port: 8080,
     database: "RRT",
     password: ""
 });
