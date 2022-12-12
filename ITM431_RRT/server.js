@@ -314,13 +314,10 @@ app.post("/process_utilization_name", function(request, response) {
     query_DB_name(POST, response);
 });
 
-//RRT perishable/non-perishable inventory
-function query_perish_non_perish(POST, response) {
-    if (typeof(POST['Fname']) != 'undefined' &&
-        typeof(POST['Lname']) != 'undefined') {
-        Fname = JSON.stringify(POST['Fname']);
-        Lname = JSON.stringify(POST['Lname']);
-        query = "SELECT CustomerID, FName, LName, RewardStatus FROM publiccustomerinfo WHERE FName = " + Fname + " and LName = " + Lname; // Build the query string
+//RRT Total Inventory
+function query_tot_inventory(POST, response) {
+    if (POST['View Report'] != 'undefined') {
+        query = "SELECT ItemID, ItemName, Quantity, Category FROM Inventory"; // Build the query string
         con.query(query, function(err, result, fields) { // Run the query
             if (err) throw err;
             console.log(result);
@@ -328,21 +325,78 @@ function query_perish_non_perish(POST, response) {
             var res_json = JSON.parse(res_string);
             console.log(res_json);
             // Table of results
-            response_form = `<form action="rewards_utilization.html" method="GET">`;
+            response_form = `<form action="inventory_level.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>CustomerID</td><td><B>Fname</td><td><B>Lname</td><td><B>RewardStamps</td></b>`;
+            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Quantity</td><td><B>Category</td></b>`;
             for (i in res_json) {
-                response_form += `<tr><td> ${res_json[i].CustomerID}</td>`;
-                response_form += `<td> ${res_json[i].FName}</td>`;
-                response_form += `<td> ${res_json[i].LName}</td>`;
-                response_form += `<td> ${res_json[i].RewardStatus}</td></tr>`;
+                response_form += `<tr><td> ${res_json[i].ItemID}</td>`;
+                response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td>`;
+                response_form += `<td> ${res_json[i].Category}</td></tr>`;
             }
             response_form += "</table>";
             response_form += `<input type="submit" value="Click to Go Back"> </form>`;
             response.send(response_form);
         });
     } else {
-        response.send("Please go back and enter a customer's first and last name.");
+        response.send("Query broken... fix um!");
+    }
+}
+
+//RRT total inventory
+app.post("/total_inventory", function(request, response) {
+    let POST = request.body;
+    query_tot_inventory(POST, response);
+});
+
+//RRT perishable/non-perishable inventory
+function query_perish_non_perish(POST, response) {
+    if (POST['category'] == 'perishable') {
+        category = JSON.stringify(POST['category']);
+        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category; // Build the query string
+        con.query(query, function(err, result, fields) { // Run the query
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="inventory_level.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Quantity</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].ItemID}</td>`;
+                response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else if (POST['category'] == 'non-perishable') {
+        category = JSON.stringify(POST['category']);
+        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category; // Build the query string
+        con.query(query, function(err, result, fields) { // Run the query
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="inventory_level.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Quantity</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].ItemID}</td>`;
+                response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("Code not working...try again~ :P");
     }
 }
 

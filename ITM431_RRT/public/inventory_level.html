@@ -26,53 +26,39 @@
     <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
         <span class="w3-bar-item w3-right">
         <a href="queries.html" class="w3-button w3-block w3-black"
-          >Rabbit Rabbit Tea</a
-        ></span
-      >
+          >Rabbit Rabbit Tea</a></span>
     </div>
     <div style="margin-top: 75px">
-      <center>
-        <h1>Inventory Level Report</h1>
-        <h3>View current inventory level reports</h3>
-<!-- Total Inventory Report -->
-      <form action="/process_utilization_name" method="POST"
-        class="w3-main"
-        style="margin-top: 50px">
-        <div class="w3-main" style="margin-top: 30px">
-          <h4>
-            View a customer's rewards status by name. Please input a
-            customer's name.
-          </h4>
-        </div>
-        Enter first name
-        <input type="text" name="Fname" style="margin-bottom: 20px" />
-        <br />
-        Enter last name
-        <input type="text" name="Lname" style="margin-bottom: 20px" />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-<!-- Perishable/Non-perishable reports -->
-          <form
-          action="/perish_nonperish_invent"
-          method="POST"
-          class="w3-main"
-          style="margin-top: 50px"
-        >
-          <div class="w3-main" style="margin-top: 30px">
-            <h4>
-              Perishable and Non-Perishable Inventory Reports
-            </h4>
-          </div>
-          Choose inventory category
-          <select id="category" name="category">
+        <center>
+            <h1>Inventory Level Report</h1>
+            <h3>View current inventory level reports</h3>
+            <!-- Total Inventory Report -->
+            <form action="/total_inventory" method="POST" class="w3-main" style="margin-top: 50px">
+                <div class="w3-main" style="margin-top: 30px;">
+                    <h4 style="display:inline;">
+                        Total Inventory Report
+                    </h4>
+                    <input type="submit" value="View Report" style="margin-left: 10px" />
+                </div>
+            </form>
+            <!-- Perishable/Non-perishable reports -->
+            <form action="/perish_nonperish_invent" method="POST" class="w3-main" style="margin-top: 50px">
+                <div class="w3-main" style="margin-top: 30px">
+                    <h4>
+                        Perishable and Non-Perishable Inventory Reports
+                    </h4>
+                </div>
+                Choose inventory category
+                <select id="category" name="category" style="margin-top: 10px">
+                  <option disabled selected value> -- Select an option -- </option>
             <option value="perishable">Perishable</option>
-            <option value="non-perishable">Non-perishable</option>
+            <option value="non-perishable">Non-perishable<option>
           </select>
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </center>
+                <br />
+                <input type="submit" value="Submit" style="margin-top: 10px" />
+            </form>
+        </center>
     </div>
-  </body>
+</body>
+
 </html>
