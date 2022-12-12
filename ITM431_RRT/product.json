@@ -1,0 +1,69 @@
+{
+  "Milk_Tea": [
+    {
+      "name": "Strawberry",
+      "price": 4.5,
+      "description": "made with fresh strawberies and jasmine tea",
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Strawberry_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Matcha",
+      "price": 3.5,
+      "description": "made with powdered matcha mixed and fresh jasmine tea",
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Matcha_Mik_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Jasmine",
+      "price": 3.0,
+      "description": "made with fresh brew jasmine tea mixed",
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Jasmine_Green_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Honeydew",
+      "price": 4.0,
+      "description": "made with fresh honeydew and contains no caffeine",
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Honeydew_Milk_Tea.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Taro",
+      "description": "made with powdered taro and fresh jasmine tea",
+      "price": 5.0,
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Taro_Milk_Tea.jpg",
+      "quantity_available": 100
+    }
+  ],
+  "Topping": [
+    {
+      "name": "Regular Boba",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Regular_Boba.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Egg Pudding",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Egg_Pudding.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Lychee Jelly",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Lychee_Jelly.jpg",
+      "quantity_available": 100
+    },
+    {
+      "name": "Grass Jelly",
+      "description": "freshly made every morning",
+      "price": 0.5,
+      "image": "https://raw.githubusercontent.com/hlin19/ITM352_F21-Repo/main/Lin_Helen_Assignment2/public/images/Grass_Jelly.PNG",
+      "quantity_available": 100
+    }
+  ]
+}

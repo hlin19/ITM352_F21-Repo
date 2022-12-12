@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+    <title>Inventory Level Report</title>
+</head>
+
+<body>
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+        <span class="w3-bar-item w3-right">
+        <a href="queries.html" class="w3-button w3-block w3-black"
+          >Rabbit Rabbit Tea</a
+        ></span
+      >
+    </div>
+    <div style="margin-top: 75px">
+      <center>
+        <h1>Inventory Level Report</h1>
+        <h3>View current inventory level reports</h3>
+<!-- Total Inventory Report -->
+      <form action="/process_utilization_name" method="POST"
+        class="w3-main"
+        style="margin-top: 50px">
+        <div class="w3-main" style="margin-top: 30px">
+          <h4>
+            View a customer's rewards status by name. Please input a
+            customer's name.
+          </h4>
+        </div>
+        Enter first name
+        <input type="text" name="Fname" style="margin-bottom: 20px" />
+        <br />
+        Enter last name
+        <input type="text" name="Lname" style="margin-bottom: 20px" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+<!-- Perishable/Non-perishable reports -->
+          <form
+          action="/perish_nonperish_invent"
+          method="POST"
+          class="w3-main"
+          style="margin-top: 50px"
+        >
+          <div class="w3-main" style="margin-top: 30px">
+            <h4>
+              Perishable and Non-Perishable Inventory Reports
+            </h4>
+          </div>
+          Choose inventory category
+          <select id="category" name="category">
+            <option value="perishable">Perishable</option>
+            <option value="non-perishable">Non-perishable</option>
+          </select>
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </center>
+    </div>
+  </body>
+</html>

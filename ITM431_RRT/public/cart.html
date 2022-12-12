@@ -1,0 +1,112 @@
+```<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <title>Shopping Cart</title>
+    <script src="./cart.js"></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+      }
+
+      .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/Bubble_Tea.jpg");
+        min-height: 75%;
+      }
+
+      .menu {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+          <a href="/index.html" class="w3-button w3-block w3-black">HOME</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="/order_page.html" class="w3-button w3-block w3-black"
+            >MENU</a
+          >
+        </div>
+        <div class="w3-col s3">
+          <a href="/cart.html" class="w3-button w3-block w3-black"
+            >Cart<span class="price" style="color: white"></span
+            ><i class="fa fa-shopping-cart"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <h3 id="user"></h3>
+    <h2 id="cart_total"></h2>
+    <button
+      onClick="loadPage()"
+      style="width: 10%; font-size: large; float: right; padding: 0"
+    >
+      Pay Now
+    </button>
+    <script>
+      //code from assignment 3 examples
+      var products_data;
+      var total = 0;
+      var items = 0;
+
+      function loadPage() {
+        window.location.href = "/invoice.html";
+      }
+
+      //convert string array to integer array
+      for (i = 0; i < products.Milk_Tea.length; i++) {
+        console.log(quantityArray);
+        quantityArray[i] = Number(quantityArray[i]);
+        items += quantityArray[i];
+      }
+
+      //print username on page
+      document.getElementById("user").innerHTML =
+        "Welcome " + currentUser + "!";
+      document.getElementById("cart_total").innerHTML =
+        "You have " + items + " items in your shopping cart.";
+    </script>
+
+    <script>
+      for (i = 0; i < products.Milk_Tea.length; i++) {
+        if (quantityArray[i] != 0) {
+          document.write(`
+
+      <div style="width: 500px; font-size: 15px; text-align: center; margin-left:auto; margin-right:auto">
+       <p><font size="8">  Flavor:       ${products.Milk_Tea[i].name}</font></p>
+       <p>Price:        $${products.Milk_Tea[i].price * quantityArray[i]}<p>
+        <form action="./process_form" method="post" id="form${i}">
+          <input type="number" name="quantity${i}" placeholder="0" id="quantity${i}" value="${
+            quantityArray[i]
+          }">
+          <button type="submit">Update</button>
+        </form>
+        </div>
+        </div>`);
+        }
+      }
+    </script>
+  </body>
+</html>
+```

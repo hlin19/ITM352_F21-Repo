@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- load in products.js to get products on order page for loop use. -->
+    <script src="./products.js" type="text/javascript"></script>
+    <title>Tea Cafe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+      }
+
+      .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./images/Bubble_Tea.jpg");
+        min-height: 75%;
+      }
+
+      .menu {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+          <a href="/index.html" class="w3-button w3-block w3-black">HOME</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="/order_page.html" class="w3-button w3-block w3-black"
+            >MENU</a
+          >
+        </div>
+        <div class="w3-col s3">
+          <a href="/cart.html" class="w3-button w3-block w3-black"
+            >Cart<span class="price" style="color: white"></span
+            ><i class="fa fa-shopping-cart"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <span>
+      <p id="user" style="float: right; margin: 5px; font-size: large"></p>
+      <button
+        onClick="loadPage()"
+        style="width: 10%; font-size: large; float: right; padding: 0"
+      >
+        Pay Now
+      </button></span
+    >
+    <br />
+    <br />
+    <!-- click pay now to access invoice.html -->
+
+    <script>
+      var defaultQuantity = 0;
+
+      function loadPage() {
+        window.location.href = "./cart.html";
+      }
+
+      //print username on page
+      // document.getElementById("user").innerHTML =
+      //  "Welcome " + currentUser + "!";
+      //Loop is created to display the boba products from the products.json file
+      for (i = 0; i < products.Milk_Tea.length; i++) {
+        document.write(`
+        <div className="box" style="width:80%; text-align: center; margin-left:auto; margin-right:auto; display: grid;
+        grid-gap: 5px; grid-template-columns: auto auto;">
+        <div style="width: 250px; font-size: 15px; text-align: center;">
+        <img src=${products.Milk_Tea[i].image} height="250px" width="250px"></img>
+      </div>
+      <div style="width: 500px; font-size: 15px; text-align: center;">
+       <p><b><font size="12">  Flavor:       ${products.Milk_Tea[i].name}</font></b></p>
+       <p>Price:        $${products.Milk_Tea[i].price}<p>
+       <p>Description: </p>
+       <p> ${products.Milk_Tea[i].description}</p>
+       <p>Quantity Available:        ${products.Milk_Tea[i].quantity_available}<p>
+        <form action="./process_form" method="post" id="form${i}">
+          <input type="number" name="quantity${i}" placeholder="0" id="quantity${i}" value="0">
+          <button type="submit">Add to cart</button>
+        </form>
+        </div>
+        </div>`);
+      }
+    </script>
+    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+      <p>
+        <a
+          href="https://www.w3schools.com/w3css/default.asp"
+          title="W3.CSS"
+          target="_blank"
+          class="w3-hover-text-green"
+        ></a>
+      </p>
+    </footer>
+  </body>
+</html>
