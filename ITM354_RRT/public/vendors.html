@@ -33,7 +33,7 @@
     <div style="margin-top: 75px">
       <center>
         <h1>Vendors</h1>
-        <h3>Find current information for vendors.</h3>
+        <h3>Find current information related to vendors.</h3>
         <img
           src="./images/market_stand.png"
           style="
@@ -45,24 +45,22 @@
           "
         />
         <form
-          action="/process_utilization_range"
+          action="/vendor_transaction"
           method="POST"
           class="w3-main"
           style="margin-top: 50px"
         >
           <div class="w3-main" style="margin-top: 30px">
-            <h4>
-              View customers by amount of reward stamps. Please input a stamp
-              range.
+            <h4 style="display:inline;">
+              View recent vendor transactions.
             </h4>
-          </div>
-          Enter minimum stamps
-          <input type="text" name="low_stamp" style="margin-bottom: 20px" />
+                <select id="month" name="month" style="margin-top: 10px">
+                  <option disabled selected value> -- Select a Month -- </option>
+            <option value="October">October</option>
+          </select>
           <br />
-          Enter maximum stamps
-          <input type="text" name="high_stamp" style="margin-bottom: 20px" />
-          <br />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
+        </div>
         </form>
         <form
           action="/vendor_by_name"
@@ -72,10 +70,10 @@
         >
           <div class="w3-main" style="margin-top: 25px">
             <h4 style="display:inline;">
-              Search vendor by name.
+              Search vendor information by name.
             </h4>
                 <select id="vendor" name="vendor" style="margin-top: 10px">
-                  <option disabled selected value> -- Select an option -- </option>
+                  <option disabled selected value> -- Select a Vendor -- </option>
             <option value="Costco">Costco Wholesale</option>
             <option value="Chefzone">ChefZone</option>
             <option value="Sams">Sam's Club</option>

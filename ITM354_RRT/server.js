@@ -442,6 +442,42 @@ app.post("/perish_nonperish_invent", function(request, response) {
     query_perish_non_perish(POST, response);
 });
 
+//RRT vendor transactions (restock inventory)
+function query_vendor_transaction(POST, response) {
+    if (POST['month'] == 'October') {
+        query = "SELECT TransactionNum, DATE_FORMAT(Date, '%m/%d') AS TransactionDate, VendorName, ItemName, Restocks.Quantity FROM Restocks, Vendor, Inventory WHERE Restocks.VendorID = Vendor.VendorID AND Restocks.ItemID = Inventory.ItemID AND MONTH(Restocks.Date) = 10 ORDER BY TransactionNum";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="vendors.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>TransactionNum</td><td><B>TransactionDate</td><td><B>VendorName</td><td><B>ItemName</td><td><B>Quantity</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].TransactionNum}</td>`;
+                response_form += `<td> ${res_json[i].TransactionDate}</td>`;
+                response_form += `<td> ${res_json[i].VendorName}</td>`;
+                response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("So close!! I wanna sleep T^T");
+    }
+}
+
+//RRT vendor transactions (restock inventory)
+app.post("/vendor_transaction", function(request, response) {
+    let POST = request.body;
+    query_vendor_transaction(POST, response);
+});
+
 //RRT vendor by name
 function query_vendor_name(POST, response) {
     if (POST['vendor'] == 'Costco') {
