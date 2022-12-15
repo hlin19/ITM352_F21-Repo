@@ -388,7 +388,7 @@ app.post("/total_inventory", function(request, response) {
 //RRT low inventory
 function query_low_inventory(POST, response) {
     if (POST['low_inventory'] != 'undefined') {
-        query = "SELECT ItemID, ItemName, Quantity, Category FROM Inventory WHERE (ItemID = 1 AND Quantity <= 250) OR (ItemID = 2 AND Quantity <= 250) OR (ItemID = 3 AND Quantity <= 5) OR (ItemID = 4 AND Quantity <= 500) OR (ItemID = 5 AND Quantity <= 5) OR (ItemID = 6 AND Quantity <= 5) OR (ItemID = 7 AND Quantity <= 5) OR (ItemID = 8 AND Quantity <= 5) OR (ItemID = 9 AND Quantity <= 5) OR (ItemID = 10 AND Quantity <= 10) OR (ItemID = 11 AND Quantity <= 10) OR (ItemID = 12 AND Quantity <= 10) OR (ItemID = 13 AND Quantity <= 10) OR (ItemID = 14 AND Quantity <= 3) OR (ItemID = 15 AND Quantity <= 3) OR (ItemID = 16 AND Quantity <= 3) OR (ItemID = 17 AND Quantity <= 10) OR (ItemID = 18 AND Quantity <= 10)";
+        query = "SELECT ItemID, ItemName, Category, Quantity, IdealLevel FROM Inventory WHERE Quantity < IdealLevel";
         con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
@@ -398,12 +398,13 @@ function query_low_inventory(POST, response) {
             // Table of results
             response_form = `<form action="inventory_level.html" method="GET">`;
             response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Quantity</td><td><B>Category</td></b>`;
+            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Category</td><td><B>Quantity</td><td><B>IdealLevel</td></b>`;
             for (i in res_json) {
                 response_form += `<tr><td> ${res_json[i].ItemID}</td>`;
                 response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Category}</td>`;
                 response_form += `<td> ${res_json[i].Quantity}</td>`;
-                response_form += `<td> ${res_json[i].Category}</td></tr>`;
+                response_form += `<td> ${res_json[i].IdealLevel}</td></tr>`;
             }
             response_form += "</table>";
             response_form += `<input type="submit" value="Click to Go Back"> </form>`;
