@@ -442,6 +442,107 @@ app.post("/perish_nonperish_invent", function(request, response) {
     query_perish_non_perish(POST, response);
 });
 
+//RRT vendor by name
+function query_vendor_name(POST, response) {
+    if (POST['vendor'] == 'Costco') {
+        query = "SELECT VendorID, VendorName, Address, PhoneNum FROM Vendor WHERE VendorName = 'Costco Wholesale'";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="vendors.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>VendorID</td><td><B>VendorName</td><td><B>Address</td><td><B>PhoneNum</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].VendorID}</td>`;
+                response_form += `<td> ${res_json[i].VendorName}</td>`;
+                response_form += `<td> ${res_json[i].Address}</td>`;
+                response_form += `<td> ${res_json[i].PhoneNum}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else if (POST['vendor'] == 'Chefzone') {
+        query = "SELECT VendorID, VendorName, Address, PhoneNum FROM Vendor WHERE VendorName = 'ChefZone'";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="vendors.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>VendorID</td><td><B>VendorName</td><td><B>Address</td><td><B>PhoneNum</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].VendorID}</td>`;
+                response_form += `<td> ${res_json[i].VendorName}</td>`;
+                response_form += `<td> ${res_json[i].Address}</td>`;
+                response_form += `<td> ${res_json[i].PhoneNum}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else if (POST['vendor'] == 'Sams') {
+        query = "SELECT VendorID, VendorName, Address, PhoneNum FROM Vendor WHERE VendorName = 'Sams Club'";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="vendors.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>VendorID</td><td><B>VendorName</td><td><B>Address</td><td><B>PhoneNum</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].VendorID}</td>`;
+                response_form += `<td> ${res_json[i].VendorName}</td>`;
+                response_form += `<td> ${res_json[i].Address}</td>`;
+                response_form += `<td> ${res_json[i].PhoneNum}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else if (POST['vendor'] == 'Hiboba') {
+        query = "SELECT VendorID, VendorName, Address, PhoneNum FROM Vendor WHERE VendorName = 'Hawaii Boba Wholesale Club'";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="vendors.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>VendorID</td><td><B>VendorName</td><td><B>Address</td><td><B>PhoneNum</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].VendorID}</td>`;
+                response_form += `<td> ${res_json[i].VendorName}</td>`;
+                response_form += `<td> ${res_json[i].Address}</td>`;
+                response_form += `<td> ${res_json[i].PhoneNum}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("It's working! Now finish it T^T");
+    }
+}
+
+//RRT vendor by name
+app.post("/vendor_by_name", function(request, response) {
+    let POST = request.body;
+    query_vendor_name(POST, response);
+});
+
 //RRT
 con.connect(function(err) {
     if (err) throw err;

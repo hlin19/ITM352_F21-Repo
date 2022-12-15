@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+    <title>Vendors Page</title>
+</head>
+
+<body>
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+        <span class="w3-bar-item w3-right">
+        <a href="queries.html" class="w3-button w3-block w3-black"
+          >Rabbit Rabbit Tea</a
+        ></span
+      >
+    </div>
+    <div style="margin-top: 75px">
+      <center>
+        <h1>Vendors</h1>
+        <h3>Find current information for vendors.</h3>
+        <img
+          src="./images/market_stand.png"
+          style="
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+        <form
+          action="/process_utilization_range"
+          method="POST"
+          class="w3-main"
+          style="margin-top: 50px"
+        >
+          <div class="w3-main" style="margin-top: 30px">
+            <h4>
+              View customers by amount of reward stamps. Please input a stamp
+              range.
+            </h4>
+          </div>
+          Enter minimum stamps
+          <input type="text" name="low_stamp" style="margin-bottom: 20px" />
+          <br />
+          Enter maximum stamps
+          <input type="text" name="high_stamp" style="margin-bottom: 20px" />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+        <form
+          action="/vendor_by_name"
+          method="POST"
+          class="w3-main"
+          style="margin-top: 50px"
+        >
+          <div class="w3-main" style="margin-top: 25px">
+            <h4 style="display:inline;">
+              Search vendor by name.
+            </h4>
+                <select id="vendor" name="vendor" style="margin-top: 10px">
+                  <option disabled selected value> -- Select an option -- </option>
+            <option value="Costco">Costco Wholesale</option>
+            <option value="Chefzone">ChefZone</option>
+            <option value="Sams">Sam's Club</option>
+            <option value="Hiboba">Hawaii Boba Wholesale Club</option>
+          </select>
+                <br />
+                <input type="submit" value="Submit" style="margin-top: 10px; margin-bottom: 20px;" />
+            </form>
+          </div>
+      </center>
+    </div>
+  </body>
+</html>
