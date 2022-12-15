@@ -201,6 +201,42 @@ app.post("/process_query", function(request, response) {
     query_DB(POST, response);
 });
 
+//RRT Monthly Orders
+function query_order_c(POST, response) {
+    if (isNonNegativeInteger(POST['customer_ID']) &&
+        POST['month'] != ' -- Select an option -- ') {
+        CustomerID = POST['customer_ID'];
+        query = "SELECT DATE_FORMAT(OrderDate, '%m/%d') AS OrderDate, OrderNum, DrinkName, Quantity FROM Orders, Drink WHERE Drink.DrinkID = Orders.DrinkID AND CustomerID = " + CustomerID; // Build the query string
+        con.query(query, function(err, result, fields) { // Run the query
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="monthly_orders_c.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>OrderDate</td><td><B>OrderNum</td><td><B>DrinkName</td><td><B>Quantity</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].OrderDate}</td>`;
+                response_form += `<td> ${res_json[i].OrderNum}</td>`;
+                response_form += `<td> ${res_json[i].DrinkName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("Please go back to select a month and enter your customer ID. Thank you! :)");
+    }
+}
+//RRT Monthly Orders
+app.post("/monthly_orders_c", function(request, response) {
+    let POST = request.body;
+    query_order_c(POST, response);
+});
+
 //RRT Customer Reward page
 function query_DB_reward(POST, response) {
     if (typeof(POST['Fname']) !== 'undefined' &&
