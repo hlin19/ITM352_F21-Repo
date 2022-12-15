@@ -169,11 +169,11 @@ app.use(express.static("./public"));
 //RRT Monthly Spending
 function query_DB(POST, response) {
     if (isNonNegativeInteger(POST['low_price']) &&
-        isNonNegativeInteger(POST['high_price'])) { // Only query if we got a low and high price
-        low = POST['low_price']; // Grab the parameters from the submitted form
+        isNonNegativeInteger(POST['high_price'])) {
+        low = POST['low_price'];
         high = POST['high_price'];
-        query = "SELECT * FROM Drink where price > " + low + " and price < " + high; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT * FROM Drink where price > " + low + " and price < " + high;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -206,8 +206,8 @@ function query_order_c(POST, response) {
     if (isNonNegativeInteger(POST['customer_ID']) &&
         POST['month'] != ' -- Select an option -- ') {
         CustomerID = POST['customer_ID'];
-        query = "SELECT DATE_FORMAT(OrderDate, '%m/%d') AS OrderDate, OrderNum, DrinkName, Quantity FROM Orders, Drink WHERE Drink.DrinkID = Orders.DrinkID AND CustomerID = " + CustomerID; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT DATE_FORMAT(OrderDate, '%m/%d') AS OrderDate, OrderNum, DrinkName, Quantity FROM Orders, Drink WHERE Drink.DrinkID = Orders.DrinkID AND CustomerID = " + CustomerID;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -246,8 +246,8 @@ function query_DB_reward(POST, response) {
         Fname = JSON.stringify(POST['Fname']);
         Lname = JSON.stringify(POST['Lname']);
         CustomerID = POST['CustomerID'];
-        query = "SELECT FName, LName, RewardStatus, RewardAmt, Description FROM publiccustomerinfo, Redeemable WHERE FName = " + Fname + " and LName = " + Lname + " and CustomerID = " + CustomerID + " and RewardStatus > RewardAmt"; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT FName, LName, RewardStatus, RewardAmt, Description FROM publiccustomerinfo, Redeemable WHERE FName = " + Fname + " and LName = " + Lname + " and CustomerID = " + CustomerID + " and RewardStatus > RewardAmt";
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -279,10 +279,10 @@ app.post("/process_customer_reward", function(request, response) {
 function query_DB_range(POST, response) {
     if (isNonNegativeInteger(POST['low_stamp']) &&
         isNonNegativeInteger(POST['high_stamp'])) {
-        low = POST['low_stamp']; // Grab the parameters from the submitted form
+        low = POST['low_stamp'];
         high = POST['high_stamp'];
-        query = "SELECT CustomerID, FName, LName, RewardStatus FROM publiccustomerinfo where RewardStatus > " + low + " and RewardStatus < " + high; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT CustomerID, FName, LName, RewardStatus FROM publiccustomerinfo where RewardStatus > " + low + " and RewardStatus < " + high;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -318,8 +318,8 @@ function query_DB_name(POST, response) {
         typeof(POST['Lname']) != 'undefined') {
         Fname = JSON.stringify(POST['Fname']);
         Lname = JSON.stringify(POST['Lname']);
-        query = "SELECT CustomerID, FName, LName, RewardStatus FROM publiccustomerinfo WHERE FName = " + Fname + " and LName = " + Lname; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT CustomerID, FName, LName, RewardStatus FROM publiccustomerinfo WHERE FName = " + Fname + " and LName = " + Lname;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -352,9 +352,9 @@ app.post("/process_utilization_name", function(request, response) {
 
 //RRT Total Inventory
 function query_tot_inventory(POST, response) {
-    if (POST['View Report'] != 'undefined') {
-        query = "SELECT ItemID, ItemName, Quantity, Category FROM Inventory"; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+    if (POST['total_inventory'] != 'undefined') {
+        query = "SELECT ItemID, ItemName, Quantity, Category FROM Inventory";
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -385,12 +385,47 @@ app.post("/total_inventory", function(request, response) {
     query_tot_inventory(POST, response);
 });
 
+//RRT low inventory
+function query_low_inventory(POST, response) {
+    if (POST['low_inventory'] != 'undefined') {
+        query = "SELECT ItemID, ItemName, Quantity, Category FROM Inventory WHERE (ItemID = 1 AND Quantity <= 250) OR (ItemID = 2 AND Quantity <= 250) OR (ItemID = 3 AND Quantity <= 5) OR (ItemID = 4 AND Quantity <= 500) OR (ItemID = 5 AND Quantity <= 5) OR (ItemID = 6 AND Quantity <= 5) OR (ItemID = 7 AND Quantity <= 5) OR (ItemID = 8 AND Quantity <= 5) OR (ItemID = 9 AND Quantity <= 5) OR (ItemID = 10 AND Quantity <= 10) OR (ItemID = 11 AND Quantity <= 10) OR (ItemID = 12 AND Quantity <= 10) OR (ItemID = 13 AND Quantity <= 10) OR (ItemID = 14 AND Quantity <= 3) OR (ItemID = 15 AND Quantity <= 3) OR (ItemID = 16 AND Quantity <= 3) OR (ItemID = 17 AND Quantity <= 10) OR (ItemID = 18 AND Quantity <= 10)";
+        con.query(query, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            var res_string = JSON.stringify(result);
+            var res_json = JSON.parse(res_string);
+            console.log(res_json);
+            // Table of results
+            response_form = `<form action="inventory_level.html" method="GET">`;
+            response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
+            response_form += `<td><B>ItemID</td><td><B>ItemName</td><td><B>Quantity</td><td><B>Category</td></b>`;
+            for (i in res_json) {
+                response_form += `<tr><td> ${res_json[i].ItemID}</td>`;
+                response_form += `<td> ${res_json[i].ItemName}</td>`;
+                response_form += `<td> ${res_json[i].Quantity}</td>`;
+                response_form += `<td> ${res_json[i].Category}</td></tr>`;
+            }
+            response_form += "</table>";
+            response_form += `<input type="submit" value="Click to Go Back"> </form>`;
+            response.send(response_form);
+        });
+    } else {
+        response.send("Wooooooo more queries!");
+    }
+}
+
+//RRT low inventory
+app.post("/low_inventory", function(request, response) {
+    let POST = request.body;
+    query_low_inventory(POST, response);
+});
+
 //RRT perishable/non-perishable inventory
 function query_perish_non_perish(POST, response) {
     if (POST['category'] == 'perishable') {
         category = JSON.stringify(POST['category']);
-        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);
@@ -411,8 +446,8 @@ function query_perish_non_perish(POST, response) {
         });
     } else if (POST['category'] == 'non-perishable') {
         category = JSON.stringify(POST['category']);
-        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category; // Build the query string
-        con.query(query, function(err, result, fields) { // Run the query
+        query = "SELECT ItemID, ItemName, Quantity FROM Inventory WHERE Category = " + category;
+        con.query(query, function(err, result, fields) {
             if (err) throw err;
             console.log(result);
             var res_string = JSON.stringify(result);

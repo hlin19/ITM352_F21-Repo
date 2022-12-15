@@ -31,14 +31,29 @@
     <div style="margin-top: 75px">
         <center>
             <h1>Inventory Level Report</h1>
-            <h3>View current inventory level reports</h3>
+            <img src="./images/Inventory_box.png" style="
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;" />
+            <h4>View Current Inventory Level Reports</h4>
             <!-- Total Inventory Report -->
-            <form action="/total_inventory" method="POST" class="w3-main" style="margin-top: 50px">
-                <div class="w3-main" style="margin-top: 30px;">
-                    <h4 style="display:inline;">
+            <form action="/total_inventory" method="POST" class="w3-main" style="margin-top: 20px">
+                <div class="w3-main" style="margin-top: 5px;">
+                    <p style="display:inline;">
                         Total Inventory Report
-                    </h4>
-                    <input type="submit" value="View Report" style="margin-left: 10px" />
+                    </p>
+                    <input type="submit" id="total_inventory" value="View Report" style="margin-left: 10px" />
+                </div>
+            </form>
+            <!-- Low Inventory Report -->
+            <form action="/low_inventory" method="POST" class="w3-main" style="margin-top: 20px">
+                <div class="w3-main" style="margin-top: 5px;">
+                    <p style="display:inline;">
+                        Low Inventory Report
+                    </p>
+                    <input type="submit" id="low_inventory" value="View Report" style="margin-left: 10px" />
                 </div>
             </form>
             <!-- Perishable/Non-perishable reports -->
